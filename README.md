@@ -1,2 +1,2 @@
-# road-to-full-stack
+# Road to Full Stack
 This repository contains notes that I took/ am taking (depending on tutorial progress :D)  ) while following Udemy tutorial, tasks from that tutorial, little projects where I play with what I've learned, ....
