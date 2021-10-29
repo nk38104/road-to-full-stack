@@ -1,0 +1,210 @@
+---------------------------------------------------------------------- GENERAL ----------------------------------------------------------------------
+
+	- HTML is an acronym for HyperText Markup Language, it is a standard markup language for documents designed to be displayed in a web browser.
+
+	- It is the most basic building block of Web, it defines the meaning and structure of web content.
+
+	- "Hypertext" refers to links that connect web pages to one another, either within a single website or between websites.
+   	Links are a fundamental aspect of the Web. 
+   	By uploading content to the Internet and linking it to pages created by other people, you become an active participant in the World Wide Web.
+
+	- Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages.
+
+	- HTML uses "markup" to annotate text, images, and other content for display in a Web browser.
+  	HTML markup includes special "elements" such as <head>, <title>, <body>, <header>, <footer>, <article>, <section>, <p>, <div>, <span>, <img>,
+  	<aside>, <audio>, <canvas>, <datalist>, <details>, <embed>, <nav>, <output>, <progress>, <video>, <ul>, <ol>, <li> and many others.
+
+	- HTML tags most commonly come in pairs like <h1> and </h1>, although some represent empty elements and so are unpaired, for example <img>.
+
+	- HTML can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript (JS).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------- ELEMENTS ---------------------------------------------------------------------
+
+	- An HTML element is set off from other text in a document by "tags", which consist of the element name surrounded by "<" and ">".
+  	The name of an element inside a tag is case insensitive. That is, it can be written in uppercase, lowercase, or a mixture.
+  	For example, the <title> tag can be written as <Title>, <TITLE>, or in any other way.
+
+	- In the simple, general case, the extent of an element is indicated by a pair of tags: a "start tag" <p> and "end tag" </p>.
+	The text content of the element, if any, is placed between these tags.
+	
+	- Tags may also enclose further tag markup between the start and end, including a mixture of tags and text.
+	This indicates further (nested) elements, as children of the parent element.
+
+	- The start tag may also include element's attributes within the tag. These indicate other information, such as identifiers for sections 
+	within the document, identifiers used to bind style information to the presentation of the document, and for some tags such as the <img> 
+	used to embed images, the reference to the image resource in the format like this: <img src="example.com/example.jpg">.
+
+	- Some elements, such as the line break <br>, or <br /> do not permit any embedded content, either text or further tags.
+	These require only a single empty tag (akin to a start tag) and do not use an end tag.
+
+	- The general form of an HTML element is therefore: <tag attribute1="value1" attribute2="value2">''content''</tag>.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- ATTRIBUTES --------------------------------------------------------------------
+
+	- Most of the attributes of an element are name-value pairs, separated by = and written within the start tag of an element after the 
+	element's name.
+
+	- The value may be enclosed in single or double quotes, although values consisting of certain characters can be left unquoted in HTML (but not 
+	XHTML). Leaving attribute values unquoted is considered unsafe.
+
+	- In contrast with name-value pair attributes, there are some attributes that affect the element simply by their presence in the start tag 
+	of the element, like the ismap attribute for the img element.
+
+	- There are several common attributes that may appear in many elements for e.g. id, class, style, title, lang, etc.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- CHARACTER ENTITY REFERENCES ----------------------------------------------------------
+
+	- HTML character entity reference is a special set of characters (a code), which the browser displays as a special character or a symbol, 
+	corresponding to the entity reference code.
+
+	- The general format of an HTML character entity reference is &, followed by some code, followed by ;, without any spaces in between.
+	e.g. if you place &copy; in your HTML code, the browser will display the copyright symbol ©.
+
+	- They also resolve problems with reserved characters. Like any language, HTML has a set of special characters which browsers recognize as 
+	part of the HTML language itself. For example, browsers know that when they encounter a < character in the HTML code, they are to interpret 
+	it as a beginning of a tag. Thus, the < character is a reserved character. It’s reserved by the HTML language as having special meaning, i.e., 
+	signifying the beginning of a tag. So, if we want to display them we need a way to tell the browser not to interpret them as HTML code, but as 
+	regular content.
+
+	- There are 3 reserved characters that should always be substituted with their corresponding entity character references:
+		1) Instead of <, use &lt; e.g. <p> 3 &lt; 5 </p> ---> 3 < 5
+		2) Instead of >, use &gt; e.g. <p> 2 &lt; 1 </p> ---> 2 > 1
+		3) Instead of &, use &amp; e.g. <p> you &amp; me </p> ---> you & me
+
+	- Very commonly used HTML character entity reference is &nbsp;, also known as the non-breaking space. It is used when for example you want to
+	make sure text like, e.g. your first and last name stayed together no matter how the text wrapped.So, it prevents an automatic line break at 
+	its position.
+
+	- Examples:
+		&amp;	&#38;	&#x26;	&	Ampersand	
+		&lt;	&#60;	&#x3C;	<	Less Than	
+		&gt;	&#62;	&#x3e;	>	Greater Than	
+		&quot;	&#34;	&#x22;	"	Double Quote	
+		&apos;	&#39;	&#x27;	'	Single Quote	
+		&nbsp;	&#160;	&#xA0;		Non-Breaking Space	
+		&copy;	&#169;	&#xA9;	©	Copyright	
+		&reg;	&#174;	&#xAE;	®	Registered Trademark	
+		&dagger;	&#8224;	&#x2020;	†	Dagger	
+		&Dagger;	&#8225;	&#x2021;	‡	Double dagger	Names are case sensitive
+		&ddagger;	&#8225;	&#x2021;	‡	Double dagger	Names may have synonyms
+		&trade;	&#8482;	&#x2122;	™	Trademark
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- DATA TYPES --------------------------------------------------------------------
+
+	- In HTML, a data type is explained as the type of data that is used in the content of an element or in the value of an attribute.
+
+	- HTML defines several data types for element content, such as script data and stylesheet data, and a plethora of types for attribute values.
+	
+	- Basic data types in HTML are: character, text, name, number. In the character data types, there are different types of alphanumeric text:
+	number[0...9], symbols[@ , # , $ , % , ∧ , & , * , () , _ , — , + , = , \ , | , {} , [] , ~], punctuations[Comma, full stop, and exclamation 
+	mark].
+
+	- According to HTML Data Types by RFC & IANA Documentation (RFC is a memorandum that describes the methods, behaviours, or research on the 
+	working of Internet and IANA is the entity that looks over the global IP address allocation, media types, and other Internet protocol related 
+	assignments) there are the following four basic data types:
+
+		1) Uniform Resource Identifier (URI) - The URI refers to a set of characters used to identify or name a resource on the Internet. 
+		URIs can also be defined as a simple and extensible method of identifying a resource on the Internet, for example:
+				http://richard:jones@codescracker.com:80/over/there/index.dtb;type=anime1?name=ferret#nose
+
+		2) Content type - the content type (known as Media type or MIME) represents the type of the content used in an embedded or linked 
+		resource. For instance, the content type can be plain text or a jpeg image. It is not case sensitive. Its syntax is divided into two 
+		parts : top level and bottom level. The top level is separated from the bottom level by a slash (/) symbol. Following are some of 
+		the examples of the content type:
+
+			2.1) Text/plain - Represents a plain text
+			2.2) Image/jpeg - Represents a compressed image file
+			2.3) Audio/basis - Represents an audio file
+			2.4) Video/mpeg - Represents a transmitted compressed video file
+			2.5) Application/octet-stream - Represents a binary file
+		
+		3) Language code - For example: 
+				
+				<html lang="en">
+				...
+				...
+				...
+				</html>
+
+		4) Character set - he character set is a set of standard characters taken from the several languages and scripts of the world, 
+		and are represented with the unique code points. These code points can be defined as the unique names and integers that are assigned 
+		 to the character sets for their unique identification. Some examples of the character set are: dollar symbol, yen symbol, lower and
+		upper case letters, delta, omega, exclamation mark, quotation mark, etc.
+
+	- HTML Data Types Defined by W3C Specifications (W3C Specifies the following five additional data types for HTML):
+			
+			1) DateTime - DateTime uses ISO date format (ISO 8601), that is (YYYY-MM-DDThh:mm:ssTZD). The components of the given format 
+			are defined in the following manner:
+
+				- YYYY = Represents a year in four digits, such as 1995 and 2009
+				- MM = Represents a two-digits numerical value of months (01 through 12)
+				- DD = Represents the date of the month (01 through 31)
+				- T = Acts as the separator between the date and time and it must be written in capital letters
+				- hh = Represents the hour that ranges from 00 through 23
+				- mm = Represents the minutes that range from 00 through 59
+				- ss = Represents the second that ranges from 00 through 59
+				- TZD = Stands for Time Zone Designator (Z or +hh:mm or -hh:mm)
+
+			2) Red Green Blue (RGB) triplet - RGB triplet represents three standard colors, which are Red, Green, and Blue. All the 
+			possible colors can be formed with the combination of these three colors in different intensities and proportions.
+			All colors can be represented by a six digit hexadecimal number, such as (xxyyzz), where:
+
+				- The first two consecutive digits (xx) of the hexadecimal number represent red. 
+				The hexadecimal equivalence of Red color is #xx0000
+				
+				- The second two consecutive digits (yy) represent green. 
+				The hexadecimal equivalence of green is represent by #00yy00
+
+				- The last two digits (zz) represent blue. The hexadecimal equivalence is represented by 0000zz
+
+			3) Color names - In HTML, 16 colors can be called directly by their color names rather than their hexadecimal values. 
+			This feature makes it easy for the users of HTML to call a color by its name, if they are unware of its hexadecimal number 
+			and the concept of the RGB triplet.
+
+			4) Link types - Link types are used to provide a variety of information to search engine. You may use the various recognized 
+			link types, with their conventional interpretations. These link types are not case-sensitive, which implies that you can use 
+			both the lower case and the upper case characters to represent a link type. The whitespace characters such as space, tab, 
+			carriage-return, linefeed, formfeed, vertical-tab, and newline characters are not permitted within link types.
+
+			There are the following link types available in HTML:
+
+				- Alternate = Refers to the substitute for the document in which the link occurs. When used with the lang attribute, 
+				the alternate link type represents the translated version of the current document. When used with the media attribute, 
+				it represents the version, which is designed for a different media.
+				- Style Sheet = Represents the external style sheet. You can select a style from alternate style sheets by using the 
+				style sheet and alternate link types together.
+				- Start = Represents the first document among the collection of different documents. The start link type provides 
+				information about the initial document to the search engine.
+				- Next = Represents the next document in the linear set of documents
+				- Prev = Represents the previous document in the linear set of documents
+				- Contents = Represents the document having the table of content
+				- Index = Represents the document having the index
+				- Glossary = Represents the document having glossary
+				- Copyright = Represents the document having the copyright statement
+				- Chapter = Represents the chapter of a collection of documents
+				- Section = Represents the section of a collection of documents
+				- Subsection = Represents the subsection of a collection of documents
+				- Appendix = Represents the appendix of a collection of documents
+				- Help = Represents the document with the help feature
+				- Bookmark = Represents the bookmark
+
+			5) Media types - Media types enables us to specify how to present the HTML documents on different media, such as paper, 
+			computer's screen, or an aural browser. HTML5 allows us to use the CSS properties to display the text of an HTML page 
+			in different font types, colors, and font sizes for different media.
+
+			There are the following available media types :
+
+				- screen = Represents a computer screen
+				- tty = Represents media using a fixed pitch character grid with limited display capabilities
+				- tv = Represents a television
+				- projection = Represents a projector
+				- handheld = Represents hand-held devices, such as mouse, joy stick, and keyboard
+				- print = Represents the print preview mode
+				- aural = Represents the speech synthesize
+				- all = Represents the media type that is suitable for all the devices
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
