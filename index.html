@@ -4,12 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Road To Full Stack</title>
+    <style>
+        body {
+            background-attachment: fixed;
+            background-image: url('images/index-bg.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0 8rem 1rem 8rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .logo {
+            float: left;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+
+        .page-link {
+            float: right;
+            font-size: 1.2rem;
+            margin-top: 2.8rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #40D630;
+        }
+
+        .page-link a {
+            margin-left: 1rem;
+        }
+
+        a:hover {
+            color: tomato;
+        }
+    </style>
 </head>
-<body style="background-image: url('images/index-bg.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
-    <div style="display: inline-block; width: 100%;">
-        <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden; width: 100%; font-family: 'Courier New', Courier, monospace;">
-            <li style="display: inline; float: left; margin-top: 2.5rem; margin-left: 7rem; font-size: 2.5rem;"><a href="index.html" style="text-decoration: none; font-weight: 550; color: #40D630;">RTFS</a></li>
-            <li style="display: inline; float: right; margin-top: 3.5rem; margin-right: 7rem; font-size: 1.4rem;"><a href="pages/html/index.html" style="text-align: center; padding: 14px 16px; text-decoration: none; color: #40D630;">HTML</a></li>
+<body>
+    <div>
+        <ul>
+            <li class="logo"><a href="index.html">RTFS</a></li>
+            <li class="page-link"><a href="pages/html/index.html">HTML</a></li>
+            <li class="page-link"><a href="pages/css/css.html">CSS</a></li>
         </ul>
     </div>
     <hr style="color: white;">
