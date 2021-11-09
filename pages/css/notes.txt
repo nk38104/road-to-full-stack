@@ -1,0 +1,139 @@
+---------------------------------------------------------------------- GENERAL ----------------------------------------------------------------------
+
+	- CSS stands for Cascading Style Sheets with an emphasis placed on “Style.” It is a simple mechanism for adding style 
+	  (e.g., fonts, colors, spacing) to Web documents. The name cascading comes from the specified priority scheme to determine which style rule 
+	  applies if more than one rule matches a particular element. It is used to describe the presentation of a document written in HTML or XML 
+	  (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, 
+	  or on other media.
+
+	- CSS brings style to your web pages by interacting with HTML elements. Like HTML, CSS is not a programming language. 
+	  It's not a markup language either. CSS is a style sheet language. 
+
+	- CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This separation can improve 
+	  content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple web pages 
+	  to share formatting by specifying the relevant CSS in a separate .css file which reduces complexity and repetition in the structural content 
+	  as well as enabling the .css file to be cached to improve the page load speed between the pages that share the file and its formatting.
+
+	- Separation of formatting and content also makes it feasible to present the same markup page in different styles for different 
+	  rendering methods, such as on-screen, in print, by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. 
+	  CSS also has rules for alternate formatting if the content is accessed on a mobile device.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------- ADDING CSS TO HTML ----------------------------------------------------------------
+
+	- There are three main ways to add that CSS code to your HTML pages: inline, internal or external. 
+	  Priority order is as written: inline > internal > external.
+
+	1) External style sheets are saved as .css files and can be used to determine the appearance of an entire website through one file 
+	   (rather than adding individual instances of CSS code to every HTML element you want to adjust). In order to use an external 
+	   style sheet, your .html files need to include a header section that links to the external style sheet and looks something like this:
+		
+		<head>
+			<link rel=”stylesheet”  type=”text/css”  href=mysitestyle.css”>
+		</head>
+
+	   This will link the .html file to your external style sheet (in this case, mysitestyle.css), and all of the CSS instructions in that 
+	   file will then apply to your linked .html pages.
+
+
+	2) Internal style sheets are CSS instructions written directly into the header of a specific .html page. (This is especially useful 
+	   if you have a single page on a site that has a unique look.) An internal style sheet looks something like this:
+
+		<head>
+			<style>
+				body  {  background-color: thistle;  }
+				p  {  font-size:20px;  color:mediumblue;  }	
+			</style>
+		</head>
+
+
+	3) Finally, inline styles are snippets of CSS written directly into HTML code, and applicable only to a single coding instance.
+	   Not an efficient way to write as it has a lot of redundancy. For example:
+
+		<h1  style=”font-size:40px;color:violet;”>Check out this headline!</h1>
+		<p>Check out this paragraph!</p>
+		<h1  style=”font-size:40px;color:violet;”>Check out this second headline!</h1>
+
+
+	- Generally speaking, external style sheets are the most efficient method for implementing CSS on a website (it’s easier to keep track of 
+	  and implement a site’s style from a dedicated CSS file), while internal style sheets and inline style can be used on a case by case basis 
+	  when individual style changes need to be made.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- ANATOMY OF A CSS RULESET -------------------------------------------------------------
+
+	- CSS syntax:
+		
+		Selector {
+			property: value;
+			property: value;
+			.
+			.
+			.
+		}
+
+	- The whole structure is called a ruleset. (The term ruleset is often referred to as just rule.)
+
+	- Let's check individual parts:
+		
+		- SELECTOR: this is the HTML element name at the start of the ruleset. It defines the element(s) to be styled. So, it's used 
+		  to target elements and apply CSS on them. There are five simple selectors:
+				
+							1) Element Selector e.g. element {} -> p {}
+							2) Id Selector e.g. #idName {}
+							3) Class Selector e.g. .className {}
+							4) Attribute Selector e.g. element[property] -> img[src]
+							5) Pseudo-class Selector e.g. element:state -> a:hover
+
+							Priority of selectors: Id > Class > Element
+		
+		- With element selector as it's name says we apply style to all elements by its name
+		- We can't have multiple ids with same name, they have to be unique because we use them to target specific or unique element
+		- Different to ids multiple class selectors can have same name, we use them when we want to group multiple elements and
+		  give them same style
+		- Attribute selector selects all the element(s) on the page with the specified attribute
+		- Pseudo-class selector targets the specified element(s), but only when in the specified state.
+
+		
+		- PROPERTIES: is a way in which we can style an HTML elements. For example: color, width, height, background, etc.
+
+		- PROPERTY VALUE: is a one out of many possible appearances for the given property, something like setting for the property
+		  e.g. color: blue, width: 50%, height: 20px, background: black, etc.
+
+		- DECLARATION: is the information between curly brackets, and it contains properties and values that are applied to the selector.
+		  So, it is a single rule (property + value);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- COLORS ----------------------------------------------------------------------
+
+	- There are different colouring schemes in CSS. Three widely used techniques are as follows:
+			
+				1) RGB: it starts with rgb and takes 3 parameters, value for 3 rgb colors (red, green, blue).
+					The value of each parameter may vary from 0 to 255 e.g. rgb(255, 170, 175);
+
+					RED - rgb(255, 0, 0);
+					GREEN - rgb(0, 255, 0);
+					BLUE - rgb(0, 0, 255);
+
+				2) HEX: it starts with # and it's is specified with: #RRGGBB. R (red), GG (green) and BB (blue) are hexadecimal 
+				        integers between 00 and FF specifying the intensity of the color.
+
+				3) RGBA: it's same as RGB but insted of 3 parameters it takes 4. First 3 are same as RGB with additional 4th which
+					 is alpha cahnnel and it specifies the opacity for a color. e.g. rgba(255, 170, 175, 0.5); 
+					 Alpha can be between 0 and 1, where 0 is fully transparent and 1 is not transparent at all.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- FLOAT -----------------------------------------------------------------------
+
+	- Float creates an empty space on either side (left or right), depending on which side we float, which allows other elements to take up 
+	  remaining space. Because of that, after float we usually want to use	clear:both; to ensure we clear all floats, left or right, so we can 
+	  prevent the next element to shift up in the remaining space. Say you want 2 elements side by side and another element below them, you will 
+	  float 2 elements to left and you want the other below them. You use clear: both on below element so it won't shift up in remaining space
+	  but instead it will continue below.
+
+	- The clear property indicates that the left, right or both sides of an element can not be adjacent to earlier floated elements within the 
+	  same block formatting context. It controls the flow next to floated elements, so it specifies what should happen with the element that is 
+	  next to a floating element.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
