@@ -58,6 +58,8 @@
 	- Generally speaking, external style sheets are the most efficient method for implementing CSS on a website (it’s easier to keep track of 
 	  and implement a site’s style from a dedicated CSS file), while internal style sheets and inline style can be used on a case by case basis 
 	  when individual style changes need to be made.
+			
+			
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------- ANATOMY OF A CSS RULESET -------------------------------------------------------------
@@ -93,8 +95,28 @@
 		  give them same style
 		- Attribute selector selects all the element(s) on the page with the specified attribute
 		- Pseudo-class selector targets the specified element(s), but only when in the specified state.
-
 		
+		- Most commonly used selectors:
+							.class
+							#id
+							*	
+							element
+							element1, element2  - selects all first elements and all second elements
+							element1 element2   - selects all second elements that are inside of first element
+							element1 > element2 - selects all second elements where the parent is a first element
+							element1 + element2 - selects the first second element that is placed immediately after first elements
+							element1~element2   - selects every second element that is preceded by a first element
+							:hover 
+							:last-child - selects last child
+ 							:first-child - selects first child
+							!important (not recommended) - this property can not be changed later on
+
+		- What seletors win out in the cascade depends on:
+				
+				-Specificity
+				-Importance
+				-Source Order
+
 		- PROPERTIES: is a way in which we can style an HTML elements. For example: color, width, height, background, etc.
 
 		- PROPERTY VALUE: is a one out of many possible appearances for the given property, something like setting for the property
@@ -135,5 +157,11 @@
 	- The clear property indicates that the left, right or both sides of an element can not be adjacent to earlier floated elements within the 
 	  same block formatting context. It controls the flow next to floated elements, so it specifies what should happen with the element that is 
 	  next to a floating element.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- REFERENCES --------------------------------------------------------------------
+
+	- https://www.w3schools.com/cssref/css_selectors.asp
+	- https://css-tricks.com/almanac/
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
