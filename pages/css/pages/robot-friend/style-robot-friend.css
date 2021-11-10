@@ -1,0 +1,161 @@
+h1 {
+	border-right: 1px solid white;
+	border-left: 0;
+	float: left;
+	padding-bottom: 10px;
+}
+
+.robots {
+	clear: both;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 200px;
+}
+
+.head, 
+.left-arm, 
+.torso, 
+.right-arm, 
+.left-leg, .right-leg {
+	 background-color: #40D630;
+}
+
+.head {
+	border-radius: 200px 200px 0 0;
+	height: 150px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	width: 200px;
+}
+
+.head:hover {
+	transition: 1s ease-in-out;
+	width: 300px;
+}
+
+.eyes {
+	display: flex;
+}
+
+.left-eye, .right-eye {
+	background-color: black;
+	border-radius: 15px;
+	height: 20px;
+	position: relative;
+	top: 100px;
+	width: 20px;
+}
+
+.left-eye {
+	left: 40px;
+}
+
+.right-eye {
+	left: 120px;
+}
+
+.upper-body { 
+	display: flex;
+	height: 150px;
+	width: 300px;
+}
+
+.left-arm, .right-arm { 
+	border-radius: 100px;
+	height: 125px;
+	width: 40px;
+}
+
+.left-arm {
+	margin-right: 10px;
+}
+
+.right-arm {
+	margin-left: 10px;
+}
+
+.left-arm:hover {
+	-webkit-transform: rotate(140deg);
+    -moz-transform: rotate(140deg);
+    -o-transform: rotate(140deg);
+    -ms-transform: rotate(140deg);
+    transform: rotate(140deg);
+}
+
+.right-arm:hover {
+	-webkit-transform: rotate(-140deg);
+    -moz-transform: rotate(-140deg);
+    -o-transform: rotate(-140deg);
+    -ms-transform: rotate(-140deg);
+    transform: rotate(-140deg);
+}
+
+.torso {
+	align-items: center;
+	border-radius: 0 0 50px 50px;
+	display: flex;
+	height: 200px;
+	justify-content: center;
+	width: 200px;
+
+}
+
+#play-btn {
+	height: 80px;
+	width: 80px;
+}
+
+#play-btn:hover {
+	background: linear-gradient(238deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, 
+								rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, 
+								rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+	background-size: 1200% 1200%;
+	animation: rainbow 16s ease infinite;
+	transform: rotate(180deg);
+}
+
+@keyframes rainbow {
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
+}
+
+.lower-body {
+	display: flex;
+	height: 200px;
+	margin: 0 auto;
+	width: 200px;
+}
+
+.left-leg, .right-leg {
+	border-radius: 0 0 100px 100px;
+	height: 120px;
+	width: 40px;
+}
+
+.left-leg {
+	margin-left: 30px;
+}
+
+.right-leg {
+	margin-left: 55px;
+}
+
+.left-leg:hover {
+	-webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+.right-leg:hover {
+	-webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+
