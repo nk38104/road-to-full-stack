@@ -6,12 +6,17 @@ body {
     padding: 0;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0 8rem 1rem 8rem;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    padding: 0;
+a {
+    text-decoration: none;
+    color: #40D630;
+}
+
+a:hover {
+    color: tomato;
+}
+
+hr {
+    color: white;
 }
 
 .logo {
@@ -27,19 +32,47 @@ ul {
     margin-top: 2.8rem;
 }
 
-a {
-    text-decoration: none;
-    color: #40D630;
-}
-
 .page-link a {
     margin-left: 1rem;
 }
 
-a:hover {
-    color: tomato;
+ul {
+    list-style-type: none;
+    margin: 0 8rem 1rem 8rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    padding: 0;
 }
 
-hr {
-    color: white;
+/* ---------- IMAGE GALLERY ---------- */
+
+.container {
+    clear: both;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15%; 
 }
+
+h1 {
+    float: right;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    color: #40D630;
+    text-align: center;
+    width: 50%;
+}
+
+img {
+    border-radius: 10px;
+    height: 300px;
+    margin: 15px;
+    width: 450px;
+    transition: all 1s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* ----------------------------------- */
