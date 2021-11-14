@@ -1,16 +1,9 @@
-h1 {
-	border-right: 1px solid white;
-	border-left: 0;
-	float: left;
-	padding-bottom: 10px;
-}
-
 .robots {
 	clear: both;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin-top: 200px;
+	margin-top: 250px;
 }
 
 .head, 
@@ -111,8 +104,7 @@ h1 {
 								rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, 
 								rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
 	background-size: 1200% 1200%;
-	animation: rainbow 16s ease infinite;
-	transform: rotate(180deg);
+	animation: rainbow 16s ease infinite, rotating 4s linear infinite;	
 }
 
 @keyframes rainbow {
@@ -121,6 +113,22 @@ h1 {
 	100% { background-position: 0% 50% }
 }
 
+@keyframes rotating {
+	from {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	to {
+	  -ms-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -webkit-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
 .lower-body {
 	display: flex;
 	height: 200px;
