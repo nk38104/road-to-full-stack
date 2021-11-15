@@ -6,10 +6,14 @@
 	margin-top: 250px;
 }
 
-.head, 
-.left-arm, 
-.torso, 
-.right-arm, 
+.android {
+	border-bottom: 1px solid #40D630;
+}
+
+.head,
+.left-arm,
+.torso,
+.right-arm,
 .left-leg, .right-leg {
 	 background-color: #40D630;
 }
@@ -95,16 +99,17 @@
 }
 
 #play-btn {
-	height: 80px;
-	width: 80px;
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
 }
 
 #play-btn:hover {
+	animation: rainbow 16s ease infinite, rotating 4s linear infinite;
 	background: linear-gradient(238deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, 
 								rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, 
 								rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
 	background-size: 1200% 1200%;
-	animation: rainbow 16s ease infinite, rotating 4s linear infinite;	
 }
 
 @keyframes rainbow {
@@ -128,10 +133,11 @@
 	  -o-transform: rotate(360deg);
 	  transform: rotate(360deg);
 	}
-  }
+}
+
 .lower-body {
 	display: flex;
-	height: 200px;
+	height: 150px;
 	margin: 0 auto;
 	width: 200px;
 }
