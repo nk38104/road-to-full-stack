@@ -31,6 +31,68 @@
 	width: 300px;
 }
 
+.head:hover ~ .upper-body .left-arm,
+.head:hover ~ .upper-body .right-arm {
+	animation: wave 3s alternate-reverse infinite;
+}
+
+@keyframes wave {
+	0% {
+		-webkit-transform: rotate(40deg);
+		-moz-transform: rotate(40deg);
+		-o-transform: rotate(40deg);
+		-ms-transform: rotate(40deg);	
+	}
+	50% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-40deg);
+		-moz-transform: rotate(-40deg);
+		-o-transform: rotate(-40deg);
+		-ms-transform: rotate(-40deg);	
+	}
+}
+
+.head:hover ~ .lower-body .left-leg,
+.head:hover ~ .lower-body .right-leg {
+	animation: move-legs 3s alternate-reverse infinite;
+}
+
+@keyframes move-legs {
+	0% {
+		-webkit-transform: rotate(-25deg);
+		-moz-transform: rotate(-25deg);
+		-o-transform: rotate(-25deg);
+		-ms-transform: rotate(-25deg);	
+	}
+	50% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(25deg);
+		-moz-transform: rotate(25deg);
+		-o-transform: rotate(25deg);
+		-ms-transform: rotate(25deg);	
+	}
+}
+
+.head:hover ~ .upper-body .torso #play-btn {
+	animation: rainbow 16s ease infinite, rotating 4s linear infinite;
+	background: linear-gradient(238deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, 
+								rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, 
+								rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+	background-size: 1200% 1200%;
+}
+
 .eyes {
 	display: flex;
 }
