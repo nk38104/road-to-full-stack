@@ -1,9 +1,30 @@
+.css-link {
+	margin-bottom: 200px;
+}
+
 .robots {
 	clear: both;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-top: 250px;
+}
+
+.intro {
+	background-color: #40D630;
+	border-radius: 10px 10px 0 10px;
+	color: black;
+	font-size: 1.5em;
+	font-weight: bold;
+	height: 70px;
+	padding: 20px;
+	transform: translateY(-80%);
+}
+
+@media screen and (max-width: 648px) {
+	.intro {
+		border-radius: 10px 10px 0 0;
+	}
 }
 
 .android {
@@ -54,7 +75,7 @@
 		-webkit-transform: rotate(-40deg);
 		-moz-transform: rotate(-40deg);
 		-o-transform: rotate(-40deg);
-		-ms-transform: rotate(-40deg);	
+		-ms-transform: rotate(-40deg);
 	}
 }
 
@@ -83,14 +104,6 @@
 		-o-transform: rotate(25deg);
 		-ms-transform: rotate(25deg);	
 	}
-}
-
-.head:hover ~ .upper-body .torso #play-btn {
-	animation: rainbow 16s ease infinite, rotating 4s linear infinite;
-	background: linear-gradient(238deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, 
-								rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, 
-								rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
-	background-size: 1200% 1200%;
 }
 
 .eyes {
@@ -162,22 +175,29 @@
 
 #play-btn {
 	border-radius: 50%;
+	box-shadow: inset 0px 0px 1px 1px #40D630;
 	height: 100px;
 	width: 100px;
 }
 
-#play-btn:hover {
-	animation: rainbow 16s ease infinite, rotating 4s linear infinite;
+#play-btn:hover, .head:hover ~ .upper-body .torso #play-btn {
+	animation: breathing 2s alternate-reverse infinite, rainbow 16s ease infinite, rotating 4s linear infinite;
 	background: linear-gradient(238deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, 
 								rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, 
 								rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
 	background-size: 1200% 1200%;
 }
 
+@keyframes breathing {
+	0% {
+		box-shadow: inset 0px 0px 15px 15px #40D630;
+	}
+}
+
 @keyframes rainbow {
-	0% { background-position: 0% 50% }
-	50% { background-position: 100% 50% }
-	100% { background-position: 0% 50% }
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
 }
 
 @keyframes rotating {
