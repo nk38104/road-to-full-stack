@@ -1,10 +1,12 @@
 body,
 html {
-    background: url(images/startup-img.jpg) no-repeat center center fixed;
+    background: url(images/startup-img.jpg) no-repeat center fixed;
     background-size: cover;
     color: #ff7f50;
     font-family: sans-serif;
     height: 100%;
+    margin: 0;
+    padding: 0;
     width: 100%;
 }
 
@@ -15,14 +17,14 @@ html {
 }
 
 .btn-primary {
-    background-color: #ee4b08;
-    border-color: #ee4b08;
+    background-color: #ff7f50;
+    border-color: #ff7f50;
     border-width: 4px;
 }
 
-.btn-primary:hover {
-    background-color: #f05f44;
-    border-color: #f05f44;
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #ee4b08;
+    border-color: #ee4b08;
     border-width: 4px;
 }
 
@@ -41,8 +43,8 @@ h1 {
 }
 
 hr {
-    border-bottom: 3px solid #f05f44;
-    color: #f05f44;
+    border-bottom: 3px solid #ff7f50;
+    color: #ff7f50;
     margin: 20px auto;
     max-width: 65px;
     opacity: 1;
