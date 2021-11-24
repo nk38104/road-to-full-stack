@@ -102,11 +102,11 @@ li:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #60abf8;
-    height: 10vh;
+    height: 15vh;
 }
 
 footer.zone {
+    color: #4096ee;
     font-size: 1.2rem;
 }
 
