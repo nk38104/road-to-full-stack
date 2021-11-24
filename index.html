@@ -10,59 +10,54 @@
             background-image: url('images/index-bg.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: sans-serif;
             margin: 0;
             padding: 0;
         }
 
         ul {
             list-style-type: none;
-            margin: 0 8rem 1rem 8rem;
-            margin-bottom: 1rem;
+            margin: 0px;
             overflow: hidden;
-            padding: 0;
+            padding: 0px 12px;
         }
 
+        .navbar {
+            padding: 11px 0px;
+            border-bottom: 1px solid white;
+        }
+        
         .logo {
             float: left;
-            font-size: 2rem;
-            font-weight: 600;
-            margin-top: 2rem;
+            font-size: 20px;
+            padding: 5px 0px;
         }
 
         .page-link {
             float: right;
-            font-size: 1.2rem;
-            margin-top: 2.8rem;
+            font-size: 1rem;
+            padding: 8px;
         }
 
         a {
             text-decoration: none;
-            color: #40D630;
-        }
-
-        .page-link a {
-            margin-left: 1rem;
+            color: #ff7f50;
         }
 
         a:hover {
             color: tomato;
         }
-
-        hr {
-            color: white;
-        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="navbar">
         <ul>
             <li class="logo"><a href="index.html">RTFS</a></li>
-            <li class="page-link"><a href="pages/html/index.html">HTML</a></li>
-            <li class="page-link"><a href="pages/css/css.html">CSS</a></li>
             <li class="page-link"><a href="pages/bootstrap/index.html">Bootstrap</a></li>
+            <li class="page-link"><a href="pages/css/css.html">CSS</a></li>
+            <li class="page-link"><a href="pages/html/index.html">HTML</a></li>
+            <li class="page-link"><a href="index.html">Home</a></li>
         </ul>
     </div>
-    <hr>
 </body>
 </html>
