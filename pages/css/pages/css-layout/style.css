@@ -42,6 +42,17 @@ li {
     box-shadow: rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
 }
 
+/***********************************************************************
+ *  Cover
+ **********************************************************************/
+
+ .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+ }
+
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
 /***********************************************************************
  *  Green Background
