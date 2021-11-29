@@ -91,11 +91,14 @@
 ----------------------------------------------------------------------- LOOPS -----------------------------------------------------------------------
 
 - Some loops have similar syntax e.g. for, for-in, while, and do-while loops while for-of is something I saw first time, but it's similar to for-in.
-  I'm also familiar with forEach function because it is something like .ForEach with lamba is C# e.g. :
+  I'm also familiar with forEach function ((new in ECMAScript 5) ) because it is something like .ForEach with lambda in C# e.g. :
 
 	const arr = ['a', 'b', 'c'];
-
 	arr.forEach(element => console.log(element));
+
+	c#
+	int[] numbers = { 1, 2, 3 };
+	numbers.ToList().ForEach(n => Console.WriteLine(n));
 
 
 -  Difference is for-in loops through properties of an object e.g.:
