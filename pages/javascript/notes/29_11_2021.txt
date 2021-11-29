@@ -1,0 +1,163 @@
+---------------------------------------------------------------------- GENERAL ----------------------------------------------------------------------
+
+- So far, few videos in the tutorial, I found out a little bit about the history of JavaScript and what it is used for, what can we build by it 
+  and basic syntax.
+
+- To summarise some of the information it was built in 1995, it was used in Netscape Navigator (browser created by Netscape Corporation because they 
+  wanted to add actions to websites and to make them more interactive). Websites at that time were more static, didn't have any dynamic behavior.
+
+- We mainly use JavaScript for web applications, but we can use it in most software, servers, hardware controls, game development, exc.
+
+- Main types such as boolean algebra, comparisons and operators are similar to basics of any other programming language I have learned so far 
+  e.g. "Hello " + "World!" will output "Hello world!", 4 > 3 will output true, exc.
+
+- Main types are:
+	- Numbers
+	- Strings
+	- Boolean operators 
+	- Undefined (when nothing is assigned to a variable on initialization)
+	- Null
+	- Symbol (new in ECMAScript 6)
+	- Object
+
+- Also a little difference is that insted of == you can use ===, same goes for != which is !==. The difference between == and === is that === doesn't 
+  do any type conversions before comparing so the types have to be equal, while == first does type conversion and than it compares.
+
+- Good resources to read about data types:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types
+	- https://www.w3schools.com/js/js_datatypes.asp
+
+- Good resources to read about standards:
+	- https://jstherightway.org/
+	- https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/
+	- https://www.w3.org/wiki/JavaScript_best_practices
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript
+	- https://www.w3schools.com/js/js_conventions.asp
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- VARIABLES -------------------------------------------------------------------
+
+- Assignment is same as in other languages I've learned so far although rules are almost the same. Variable name can't start with a number, 
+  it has to start with letter (case sensitive) except in special situation where "$" or "_" is used. 
+  
+- We can use 3 keywords for initialization. Those are var, let (new in ECMAScript 6) and const (new in ECMAScript 6).
+
+- First new thing I've learned is prompt(). It basically prompts message in the browser and has an input box e.g. :
+
+	var first = prompt("Enter first number: ");     - It prompts message box in a browser with massage we inputed in prompt as argument
+							  when invoking it and bellow it we get input box where we type anything we want	
+	var second = prompt("Enter second number: ");   -II-
+
+- Second thing is alert(). It's similar to prompt(), in a way that it appears as message box, but we have no input option.
+  It's just something like info message box e.g. alert("Invalid input!");
+
+- Good resources to read about variable naming:
+	- https://medium.com/swlh/javascript-best-practices-variable-naming-3671350aca01
+	- https://www.robinwieruch.de/javascript-naming-conventions
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- TYPECAST --------------------------------------------------------------------
+
+- To do typecast from string to number, because in an example before prompt input is stored as a string, we just need to do this: Number(variable).
+  It would typecast variable content to a number, but of course typecast success depends on possiblity to typecast from certain type to another.
+
+- In some cases JavaScript will let arithmetic operations on different data types and this is not recommended e.g.
+	- e.g. 10 + "34" outputs "1034". In case of number and string addition number is typecasted to string and concationation is done.
+	- e.g. 10 + true outputs 11 because value od true is 1. False value is 0.
+	- e.g. 10 * "10" outputs 100.
+	- e.g. 10 / "0" outputs infinity.
+	- e.g. 10 - "3" outputs 7. So in this case string is converted to number and subtraction is done.
+  But of course as I mentioned before it all depends on typecast success. JavaScript will try to make sense out of our instruction but in case it
+  can't we will get NaN or other error output. For example, we can't do things like 10 + "Hello" (result is NaN), "hello" - "bye", etc.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- CONDITIONALS ------------------------------------------------------------------
+
+- Conditionals are: if, else, else if, switch, and so far syntax is same as in other programming languages I've learned.
+
+- Good resources to read about conditionals:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ LOGICAL OPERATORS ----------------------------------------------------------------
+
+- Logical operators are: &&(and), ||(or), !(not), and the syntax is also same as in other programming languages I know.
+
+- Good resources to read about logical operators:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- LOOPS -----------------------------------------------------------------------
+
+- Some loops have similar syntax e.g. for, for-in, while, and do-while loops while for-of is something I saw first time, but it's similar to for-in.
+  I'm also familiar with forEach function because it is something like .ForEach with lamba is C# e.g. :
+
+	const arr = ['a', 'b', 'c'];
+
+	arr.forEach(element => console.log(element));
+
+
+-  Difference is for-in loops through properties of an object e.g.:
+
+		const person = {fname:"John", lname:"Doe", age:25};
+		let text = "";
+		for (let property in person) {
+  			text += person[property];
+		}
+
+   while for-of loops through the values of an iterable object e.g.:
+	
+		const cars = ["BMW", "Volvo", "Mini"];
+		let text = "";
+		for (let brand of cars) {
+  			text += brand;
+		}
+
+  More about differences between for..in and for..of on:
+	- https://stackoverflow.com/questions/29285897/what-is-the-difference-between-for-in-and-for-of-statements
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------- HOW TO USE JS ------------------------------------------------------------------
+
+- 1. Create a file, write some JavaScript code in it and save it as whateverFileName.js
+  2. Go to HTML script and add <script> in <body> tag at the end e.g. 
+	<body>
+		<div>Hello universe!</div>
+		<script type="text/javascript" src="name.js"></script>
+	</body>
+
+- It is not a must to put <script> tag at the end of the body tag but that is a prefered way because in that case we don't need to wait for JS file
+  to execute before our page starts to display. This way html is shown in browser and than JS file affects the page.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------- CONSOLE.LOG --------------------------------------------------------------------
+
+- It is a special syntax that displays scripts output. It is similar to alert() but instead of message box-like display,
+  it is outputed in browser console 
+	
+	e.g. console.log("This is printed in log");
+
+- Good resources to read about console.log:
+	- https://developer.mozilla.org/en-US/docs/Web/API/console/log
+	- https://www.w3schools.com/jsref/met_console_log.asp
+	- https://www.geeksforgeeks.org/javascript-console-log-with-examples/
+	- https://www.freecodecamp.org/news/javascript-console-log-example-how-to-print-to-the-console-in-js/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- FUNCTIONS ---------------------------------------------------------------------
+
+- Without functions JavaScript wouldn't really do anything. 
+
+- Basic function example:	
+	
+	function sayHello() {
+		console.log("Hello");
+	}
+
+- Good resources to read about functions: 
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+	- https://www.w3schools.com/js/js_function_definition.asp
+	- https://javascript.info/function-basics
+	- https://dev.to/alexmercedcoder/ultimate-reference-on-javascript-functions-2021-40a5
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
