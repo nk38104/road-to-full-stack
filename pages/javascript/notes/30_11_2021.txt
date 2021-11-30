@@ -99,6 +99,6 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------- NULL ------------------------------------------------------------------------
 
-- Null is a special type that says the object is null, that means that there is nothing in the object. It is not same as an empty object.
+- Null is a special type that says the object is null,that means that there is nothing in the object. It is not same as an empty object.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
