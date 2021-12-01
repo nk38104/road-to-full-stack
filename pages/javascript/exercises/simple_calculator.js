@@ -1,3 +1,7 @@
+// ---------------------------------------------------------
+// -------- FUNCTION DECLARATION (ID-ELSE IF-ELSE) ---------
+// ---------------------------------------------------------
+
 // function calculate(first, second, op) {
 //     if( op === '+') 
 //         return first + second;
@@ -10,6 +14,10 @@
 //     else
 //         return "Invalid input.\nMake sure that you input only numbers, you don't divide with 0 and used correct operation.";
 // }
+
+// ------------------------------------------------
+// -------- FUNCTION DECLARATION (SWITCH)  --------
+// ------------------------------------------------
 
 // function calculate(first, second, op) {
 //     switch (op) {
@@ -31,6 +39,15 @@ var firstNumber = Number(prompt("Enter first number: "));
 var secondNumber = Number(prompt("Enter second number: "));
 var operation = prompt("Enter algorithmic operation (+, -, *, /): ");
 
+// ------------------------------------------
+// -------- VIA FUNCTION DECLARATION --------
+// ------------------------------------------
+// alert("Result is: " + calculate(firstNumber, secondNumber, operation));
+
+// -------------------------------------------
+// -------- VIA FUNCTION EXPRESSION   --------
+// -------------------------------------------
+
 // var result = function(first, second, op) {
 //     if( op === '+') 
 //     return first + second;
@@ -43,6 +60,13 @@ var operation = prompt("Enter algorithmic operation (+, -, *, /): ");
 //     else
 //     return "Invalid input.\nMake sure that you input only numbers, you don't divide with 0 and used correct operation.";
 // }
+
+// alert("Result is: " + result(firstNumber, secondNumber, operation));
+
+
+// -----------------------------
+// -------- VIA OBJECT  --------
+// -----------------------------
 
 var calculator = {
     version: "1.0",
@@ -62,6 +86,4 @@ var calculator = {
     },
 }
 
-// alert("Result is: " + calculate(firstNumber, secondNumber, operation));
-// alert("Result is: " + result(firstNumber, secondNumber, operation));
-alert("Result calculated by " + calculator.name + calculator.version + " is: " + calculator.calculate(firstNumber, secondNumber, operation));
+alert("Result calculated by " + calculator.name + " v" + calculator.version + " is: " + calculator.calculate(firstNumber, secondNumber, operation));
