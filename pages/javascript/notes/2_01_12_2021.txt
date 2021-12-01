@@ -1,0 +1,34 @@
+---------------------------------------------------------------------- LOOPS ------------------------------------------------------------------------
+
+- For, while, do-while loops also have the same syntax as most of the langeuages I have learned before.
+	e.g.	for(var i = 0; i < 10; ++i) { 
+			// do something 
+		}
+	
+	e.g.	while(i < 10) { 
+			// do somehting;
+			++i; 
+		}
+	
+	e.g.	do {
+			// do something; 
+			++i;
+		}while(i < 10);
+
+- forEach method is similar to C# ForEach method with lambda expression.
+  The concept is same as for loop but syntax is different (new in ECMAScript 5).
+  There are 2 ways we can use forEach: 
+
+	1)	list.forEach(
+			function(todo) {
+				console.log(todo);
+		});
+
+	2) 
+		function logTodos(todo, i) {	--> this way we also get indexes
+			console.log(todo, i);
+		}
+	
+		list.forEach(logTodos);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------
-// -------- FUNCTION DECLARATION (ID-ELSE IF-ELSE) ---------
+// -------- FUNCTION DECLARATION (IF-ELSE IF-ELSE) ---------
 // ---------------------------------------------------------
 
 // function calculate(first, second, op) {
