@@ -1,3 +1,4 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------- LOOPS ------------------------------------------------------------------------
 
 - For, while, do-while loops also have the same syntax as most of the langeuages I have learned before.
@@ -31,4 +32,56 @@
 	
 		list.forEach(logTodos);
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------- DOM MANIPULATION ------------------------------------------------------------------
+
+  ------------
+  -- Basics --
+  ------------
+- With JavaScript we can also: 
+	- change all the HTML elements on the page
+	- change all the HTML attributes on the page
+	- change all the CSS styles on the page
+	- remove existing HTML elements and attributes
+	- add new HTML elements and attributes
+	- JavaScript can react to all existing HTML events on the page
+	- JavaScript can create new HTML events on the page
+	- ...
+
+- When web page is loaded the browser than creates DOM(Document Object Model). It is not more than just a document/object. 
+  DOM is something that browser creates to allow us to modify HTML and/or CSS.
+
+- JS Engine - each browser has JS engine. It reads JS script and speaks with DOM in case JS modified/s HTML/CSS.
+
+  -----------------
+  --DOM Selectors--
+  -----------------
+
+- As the name suggests is used to select HTML elements within a document using JavaScript.
+  There are 5 ways in which you can select elements in a DOM using selectors:
+	
+	1) getElementsByTagName();	- returns all the elements that matches the specified Tag name
+					- e.g. document.getElementsByTagName("h1");
+	
+	2) getElementsByClassName();	- returns all the elements that matches the specified Class name
+					- e.g. document.getElementsByClassName("className");
+
+	3) getElementById();		- returns only the first matched element with specified ID while ignoring the remaining
+					- e.g. document.getElementById("idName");
+
+	4) querySelector();		- returns the first element that matches the specified CSS selector
+					- e.g. document.querySelector("li");
+					- e.g. document.querySelector(".className");
+
+	5) querySelectorAll();		- returns all the elements that match the specified CSS selector in the document
+					- e.g. document.querySelectorAll("li");
+					- e.g. document.querySelectorAll(".className");
+  
+  All those methods are methods of the document object. 
+
+- Good resources:
+	- https://blog.bitsrc.io/dom-selectors-explained-70260049aaf0
+	- https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors
+	- https://www.w3schools.com/jsref/met_document_queryselector.asp
+	- https://dev.to/alternate_robot/dom-selectors-in-javascript-344i
 -----------------------------------------------------------------------------------------------------------------------------------------------------
