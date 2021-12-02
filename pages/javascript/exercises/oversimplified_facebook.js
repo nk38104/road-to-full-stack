@@ -58,7 +58,7 @@ function signIn(userInput) {
 
 var userPromptObject = function () {
     var usernamePrompt = prompt("Enter your username(admin or test): ");
-    var passwordPrompt = prompt("Enter your password(admin or test): ");
+    var passwordPrompt = prompt("Enter your password(same as username): ");
 
     return  {
         username: usernamePrompt, 

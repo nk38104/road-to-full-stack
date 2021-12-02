@@ -1,0 +1,40 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ DOM MANIPULATION -----------------------------------------------------------------
+
+  -------------------------
+  -- DOM Selectors (II.) --
+  -------------------------
+
+  - Changing style:
+
+	1) we can use setAttribute();
+		e.g. document.querySelector("li").setAttribute(attributeName, attributeValue);
+
+	2) also by using style tag style.{property}:
+		e.g. document.querySelector("h1").style.background = "yellow";
+
+	3) With those 2 ways we have problem with SoC (Separation of concerns). (Sidenote: using second option is OK.)
+	   HTML should focus on the text, CSS on the style and JS on the actions.
+	   So one of the better ways to do this is to style a class in .css, 
+	   than with className and classList property add that class name to the element.
+	   e.g.
+		CSS file
+		.done {
+			text-decoration: 
+		}
+
+		JS file
+		document.querySelector("li").className = "done";
+
+	    With classList we use add method to add a class name, because as the name says it is a list
+	    	e.g. document.querySelector("li").classList.add("done");
+
+  - WARNING: don't use syntax as it was used untill now for selectors, CACHE SELECTORS IN VARIABLES
+	e.g. 
+		var li = document.querySelector("li");
+		li.className = "done";
+
+  ----------------
+  -- DOM Events --
+  ----------------
+
