@@ -20,18 +20,17 @@
         </ul>
     </div>
     <div class="container">
-        <h2>ToDo list</h2>
-        <p id="first">Get it done!</p>
-        <p class="second">No excuses!</p>
-        <input id="user-input" type="text" placeholder="Enter new task...">
-        <button id="btn-save">Save</button>
-        <ul id="tasks">
-            <li>Workout</li>
-            <li>Clean the house</li>
-            <li>Learn something new</li>
-            <li>Finish project</li>
-            <li>Go to supermarket</li>
-        </ul>
+        <div class="header">
+            <h1>Task Master</h1>
+            <h4>Get things done!</h4>
+        </div>
+        <div class="input-section">
+            <input id="task-input" type="text" placeholder="Add new task...">
+            <button id="btn-add">Add</button>
+        </div>
+        <div class="tasks">
+            <ul id="task-list"></ul>
+        </div>
     </div>
     <script type="text/javascript" src="./toDo.js"></script>
 </body>

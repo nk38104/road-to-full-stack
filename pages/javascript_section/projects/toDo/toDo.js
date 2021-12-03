@@ -1,29 +1,55 @@
-var button = document.getElementById("btn-save");
-var userInput = document.getElementById("user-input");
-var ul = document.querySelector("#tasks");
+var button = document.getElementById("btn-add");
+var userInput = document.getElementById("task-input");
+var ul = document.querySelector("#task-list");
 
 function checkInputLength() {
     return userInput.value.length;
 }
 
-function createListElement() {
-    var li = document.createElement("li");
-        li.appendChild(document.createTextNode(userInput.value));
-        ul.appendChild(li);
-        userInput.value = "";
+
+function addListItemChildren(li) {
+    var  checkbox = document.createElement("input");
+    var button = document.createElement("button");
+    var image = document.createElement("img");
 }
 
-function saveTaskAfterClick(event) {
+function createListElement() {
+    var li = document.createElement("li");
+    var  checkbox = document.createElement("input");
+    var button = document.createElement("button");
+    var image = document.createElement("img");
+    
+    addListItemChildren(li);
+    
+    li.setAttribute("class", "task-item");
+
+    checkbox.setAttribute("type", "checkbox");
+    button.setAttribute("type", "submit");
+    button.setAttribute("class", "btn-delete");
+    image.setAttribute("src", "./images/delete-icon.ico");
+    
+    button.appendChild(image);
+
+    li.appendChild(checkbox);
+    li.appendChild(document.createTextNode(userInput.value));
+    li.appendChild(button);
+
+    ul.appendChild(li);
+
+    userInput.value = "";
+}
+
+function addTaskAfterClick(event) {
     if(checkInputLength() > 0) {
         createListElement();
     }
 }
 
-function saveTaskAfterKeyPress(event) {
+function addTaskAfterKeyPress(event) {
     if(checkInputLength() && event.keyCode === 13) {
         createListElement();
     }
 }
 
-button.addEventListener("click", saveTaskAfterClick);
-userInput.addEventListener("keypress", saveTaskAfterKeyPress);
+button.addEventListener("click", addTaskAfterClick);
+userInput.addEventListener("keypress", addTaskAfterKeyPress);
