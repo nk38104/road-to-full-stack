@@ -1,9 +1,14 @@
 #btn-add {
-    height: 32px;
-    width: 48px;
+    height: 40px;
+    width: 64px;
     background-color: tomato;
     border: 0;
     border-radius: 0px 5px 5px 0px;
+    font-weight: bold;
+}
+
+#btn-add:hover {
+    transform: scale(1.1);
 }
 
 .btn-delete {
@@ -13,7 +18,6 @@
     border: none;
     border-radius: 2px;
     margin-left: auto;
-    padding: 0;
 }
 
 .btn-delete:hover {
@@ -24,6 +28,10 @@
     width: 70%;
     margin: 10% auto;
     text-align: center;
+}
+
+.done {
+    text-decoration: line-through;
 }
 
 h1 {
@@ -51,22 +59,25 @@ h4 {
 }
 
 #task-input {
-    height: 24px;
+    height: 32px;
     width: 70%;
     border: 3px solid tomato;
     border-radius: 5px 0px 0px 5px;
+    font-size: 18px;
     padding-left: 10px;
 }
 
 .task-item {
-    height: 30px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    border: 1px  solid tomato;
+    border-radius: 5px;
+    padding: 10px 25px;
 }
 
 .task-item input {
-    margin-right: 10px;
+    margin: 10px;
 }
 
 #task-list {
