@@ -26,6 +26,13 @@ function setTaskCheckbox(checkbox) {
     checkbox.addEventListener("click", toggleTaskStatus);
 }
 
+function deleteTask(event) {
+    var parent = event.currentTarget.parentNode;
+    var grandParent = parent.parentNode;
+
+    grandParent.removeChild(parent);
+}
+
 function setTaskDeleteButton(button) {
     var image = document.createElement("img");
 
@@ -36,6 +43,8 @@ function setTaskDeleteButton(button) {
 
     image.setAttribute("src", "./images/delete-icon.ico");
     button.appendChild(image);
+
+    button.addEventListener("click", deleteTask);
 }
 
 function addNewListItemChildren(li) {
