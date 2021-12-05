@@ -28,9 +28,8 @@ function setTaskCheckbox(checkbox) {
 
 function deleteTask(event) {
     var parent = event.currentTarget.parentNode;
-    var grandParent = parent.parentNode;
 
-    grandParent.removeChild(parent);
+    parent.remove();
 }
 
 function setTaskDeleteButton(button) {
