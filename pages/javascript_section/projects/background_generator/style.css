@@ -30,7 +30,7 @@ input[type = "color"]:hover, #rand-btn:hover {
 }
 
 .page-link a, .logo a {
-    color: black;
+    color:  rgba(0, 0, 0, .5);
     font-weight: bold;
 }
 
