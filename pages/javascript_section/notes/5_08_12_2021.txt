@@ -1,0 +1,8 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ ES5/6 -----------------------------------------------------------------
+
+  - Babel is a JavaScript compiler. We can use it when we want to change our code so it's supported on all browsers. 
+    Let's say we use newest syntax of JavaScript that's not supported on all browsers, we can enter that code in Babel and it will 
+    translate that code to a version of JavaScript that's supported on all browsers.
+  
+  - 

@@ -37,7 +37,7 @@
 			var button = document.getElementById("btn-play");
 			button.style.color = "red";
 			unsetPlayButton();
-			}
+		}
 
 		function unsetPlayButton() {
 			button.style.color = "blue";
@@ -53,3 +53,39 @@
      We can access the setPlayButton() button only within that function and from nowhere else.
 		
   - TIP: AVOID NAMING CONFLICT WHEN NAMING VARIABLES IN YOUR CODE (name variables that are in root and child scope differently).
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- CONDITIONALS 2 ------------------------------------------------------------
+	
+  - Here ternary operator and switch statement were covered and because I was already introduced to these concepts and 
+    the syntax was something I already knew there was nothing new I've learned.
+
+  ----------------------
+  -- TERNARY OPERATOR --
+  ----------------------
+
+  - Syntax:
+	
+	(condition) ? expression1 : expression2;
+
+
+  ----------------------
+  -- SWITCH STATEMENT --
+  ----------------------
+
+  - Syntax:
+
+	switch(expression):
+		case value1:
+			do something;
+			break;
+		case value2:
+			do something;
+			break;
+		.
+		.	
+		.
+		default:
+			do something;
+
+------------------------------------------------------------------------------------------------------------------------------------------
