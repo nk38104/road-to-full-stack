@@ -46,3 +46,74 @@
         - https://www.digitalocean.com/community/tutorials/understanding-arrow-functions-in-javascript
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ CLOSURES --------------------------------------------------------------
+
+    - A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical 
+      environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, 
+      closures are created every time a function is created, at function creation time.
+
+        e.g.
+            function makeFunc() {
+                var name = 'Mozilla';
+                function displayName() {
+                    alert(name);
+                }
+                return displayName;
+            }
+
+            var myFunc = makeFunc();
+            myFunc();
+
+            OR
+
+            function makeAdder(x) {
+                return function(y) {
+                    return x + y;
+                };
+            }
+
+            var add5 = makeAdder(5);
+            var add10 = makeAdder(10);
+
+            console.log(add5(2));  // 7
+            console.log(add10(2)); // 12
+
+    - Good reasources:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+        - https://www.w3schools.com/js/js_function_closures.asp
+        - https://dmitripavlutin.com/simple-explanation-of-javascript-closures/
+        - https://www.debuggr.io/js-closure-in-depth/
+        - https://www.digitalocean.com/community/tutorials/understanding-javascript-closures-a-practical-approach
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ CURRYING --------------------------------------------------------------
+
+    - Currying is an advanced technique of working with functions. It’s used not only in JavaScript, but in other languages as well.
+      Currying is a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c).
+      Currying doesn’t call a function, it just transforms it.
+
+    - So it is a process where we can transform a function with multiple arguments into a sequence of nesting functions.
+
+    - Good resources:
+        - https://javascript.info/currying-partials
+        - https://dev.to/cglikpo/currying-in-javascript-1jke
+        - https://blog.logrocket.com/understanding-javascript-currying/
+        - https://blog.bitsrc.io/understanding-currying-in-javascript-ceb2188c339
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ COMPOSE --------------------------------------------------------------
+
+    - Function composition is a mechanism of combining multiple simple functions to build a more complicated one.
+      The result of each function is passed to the next one.
+    
+    - Good resources:
+        - https://www.codementor.io/@michelre/use-function-composition-in-javascript-gkmxos5mj
+        - https://medium.com/free-code-camp/pipe-and-compose-in-javascript-5b04004ac937
+        - https://betterprogramming.pub/compose-and-pipe-in-javascript-medium-d1e1b2b21f83
+        - https://hackernoon.com/function-composition-pipe-compose-in-javascript-explained
+        - https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+    TIPS:
+        - Minimize side effects, and try to have functional purity (functions always return something).
