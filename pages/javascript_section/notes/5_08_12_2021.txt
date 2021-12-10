@@ -5,4 +5,87 @@
     Let's say we use newest syntax of JavaScript that's not supported on all browsers, we can enter that code in Babel and it will 
     translate that code to a version of JavaScript that's supported on all browsers.
   
-  - 
+------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------- VARIABLES 2 --------------------------------------------------------------
+
+  - Two new ways introduced in ECMAScript 6 are "let" and "const"
+
+  - Prefered way is to use "let" instead of "var" and as a general rule, always declare a variable with const unless
+    you know that the value will change.
+
+  ---------
+  -- LET --
+  ---------
+
+  - Main difference between "var" and "let" is that "let" signals that the variable will be used only in the block it's defined in, 
+    which is not always the entire containing function. So "var" has a global or function scope while "let" has a block scope.
+  
+  - RULES:
+	
+	- variables defined with let cannot be Redeclared.
+
+	- variables defined with let must be Declared before use.
+
+	- variables defined with let have Block Scope.
+  
+  -----------
+  -- CONST --
+  -----------
+
+  - It means that the identifier can’t be reassigned.
+
+  - RULES:
+	- variables defined with const cannot be Redeclared.
+
+	- variables defined with const cannot be Reassigned.
+
+	- variables defined with const have Block Scope.
+
+	- variables must be assigned a value when they are declared.
+
+  - The keyword const is a little misleading. It does not define a constant value. It defines a constant reference to a value.
+    Because of this you can NOT:
+
+	- reassign a constant value
+	- reassign a constant array
+	- rReassign a constant object
+
+     But you CAN:
+
+	- change the elements of constant array
+	- change the properties of constant object
+
+    You can do this e.g.:
+
+	// You can create a constant array:
+	const cars = ["Saab", "Volvo", "BMW"];
+
+	// You can change an element:
+	cars[0] = "Toyota";
+
+	// You can add an element:
+	cars.push("Audi");
+
+    BUT YOU CAN'T DO THIS e.g.:
+
+	const cars = ["Saab", "Volvo", "BMW"];
+
+	cars = ["Toyota", "Volvo", "Audi"];    // ERROR
+	
+------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------- DESTRUCTURING -----------------------------------------------------------
+
+    e.g.
+	cont obj = {
+		player: "bobby",
+		experience: 100,
+		wizardLevel: false
+	}
+
+	// const player = obj.player;
+	// const experience = obj.experience;
+	// let wizardLevel = obj.wizardLevel;
+	
+	// This is the same as the code above
+	const { player, experience } = obj;
+	let { wizardLevel } = obj;
