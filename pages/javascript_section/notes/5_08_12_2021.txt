@@ -71,21 +71,11 @@
 	const cars = ["Saab", "Volvo", "BMW"];
 
 	cars = ["Toyota", "Volvo", "Audi"];    // ERROR
-	
+
+
+  - Resources:
+	- https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
+	- https://medium.com/nerd-for-tech/var-let-and-const-in-javascript-15e41cf90f01
+	- https://dmitripavlutin.com/javascript-variables-const-let-var/
+
 ------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------- DESTRUCTURING -----------------------------------------------------------
-
-    e.g.
-	cont obj = {
-		player: "bobby",
-		experience: 100,
-		wizardLevel: false
-	}
-
-	// const player = obj.player;
-	// const experience = obj.experience;
-	// let wizardLevel = obj.wizardLevel;
-	
-	// This is the same as the code above
-	const { player, experience } = obj;
-	let { wizardLevel } = obj;
