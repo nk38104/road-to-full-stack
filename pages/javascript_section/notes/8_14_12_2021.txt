@@ -1,0 +1,94 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------- ARRAYS 2 ----------------------------------------------------------
+
+    ---------
+    -- MAP --
+    ---------
+
+    - THe map() method creates a new array that is populated with the result of calling a provided function on evey element that 
+      is in the calling array.
+    
+    - The function has to return something.
+
+    - We are able to use anything for the keys, there is no limitation to primitive values like symbols, numbers, strings but here 
+      we can even use functions, objects, dates,... Keys won’t be casted to strings like with regular objects, either.
+
+    e.g.
+        const array = [ 1, 2, 5, 10 ];
+
+        const mapArray = array.map(num => num * 2);
+
+        console.log(mapArray); // output: [ 2, 4, 10, 20 }
+
+    Good resources:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+        - https://www.javascripttutorial.net/es6/javascript-map/
+        - https://ponyfoo.com/articles/es6-maps-in-depth
+        - https://javascript.plainenglish.io/understanding-javascript-map-function-in-depth-6c8c987fcd6e
+
+    ------------
+    -- FILTER --
+    ------------
+
+    - The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+    - It does not mutate the array on which it is called, but it can be done.
+
+    e.g.
+        const array = [ 'spray', 'limit', 'elite', 'exuberant', 'destruction', 'present' ];
+
+        const filteredArray = array.filter(word => word.length > 6);
+
+        console.log(filteredArray); // output: ["exuberant", "destruction", "present"]
+
+    Good resources:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+        - https://www.javascripttutorial.net/javascript-array-filter/
+        - https://medium.com/@p0zart/javascript-with-dragons-filter-method-in-depth-420a4e45346a
+
+    ------------
+    -- REDUCE --
+    ------------
+
+    - The reduce() method executes a user-supplied “reducer” callback function on each element of the array, in order, passing 
+      in the return value from the calculation on the preceding element. The final result of running the reducer across  all 
+      elements of the array is a single value.
+
+    - The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial 
+      value may be used in its place. Otherwise array element 0 is used as the initial value and iteration starts from the next 
+      element (index 1 instead of index 0).
+
+    - accumulator - abstract name, it is something where we can store information that happens in the body of the function
+    e.g.
+        const array = [ 1, 2, 5, 10 ];
+
+        const reduceArray = array.reduce((accumulator, num) => {
+            return accumulator + num;
+        }, 0); // default accumulator value
+
+        console.log(reduceArray); // output: 18 ==> 0 + 1 = 1 + 2 = 3 + 5 = 8 + 10 = 18
+
+        const array1 = [1, 2, 3, 4];
+        const reducer = (previousValue, currentValue) => previousValue + currentValue;
+
+        // 1 + 2 + 3 + 4
+        console.log(array1.reduce(reducer));
+        // expected output: 10
+
+        // 5 + 1 + 2 + 3 + 4
+        console.log(array1.reduce(reducer, 5));
+        // expected output: 15
+
+    Good resources:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+        - https://www.digitalocean.com/community/tutorials/js-finally-understand-reduce
+        - https://www.freecodecamp.org/news/reduce-f47a7da511a9/
+        - https://codeburst.io/learn-understand-javascripts-reduce-function-b2b0406efbdc
+    
+    -------------------------------
+    -- CHAIN MAP, FILTER, REDUCE --
+    -------------------------------
+
+    - https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4
+
+-----------------------------------------------------------------------------------------------------------------------------------
