@@ -1,0 +1,104 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------- ES 7 -------------------------------------------------------------
+
+    - New features:
+        - .includes()   ---> Checks the array for the value passed as an argument. 
+                             It returns true if the array contains the value, otherwise, it returns false.
+                             e.g.
+                                const hasElement = arr.includes(el);
+
+        - **            ---> Exponentiation Operator. Same purpose as Math.pow().
+                             It returns the first argument raised to the power of the second argument.
+                             e.g.
+                                int pow = (x) => x**2;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------- ES 8 -------------------------------------------------------------
+
+    - Important new features:
+        - .padStart()       ---> Is a method that pads the current string with another string (multiple times, if needed) until 
+                                 the resulting string reaches the given length. The padding is applied from the start.
+                                 e.g.
+                                    str1.padStart(2, '0'); // outputs: "05"
+                                    'abc'.padStart(10);    // outputs: "       abc" - (7 spaces + 3 chars from init string)
+                                    
+        - .padEnd()         ---> Same as padStart witht he difference that padding is applied from the end of the string.
+        
+        - Trailing commas in function parameter lists and calls. This is a syntax change. It allows us to write a valid function 
+          declaration with comma in the end e.g. getDescription(name, age,) { ... }.
+
+        - Object.values     ---> method that returns an array of a given object's own enumerable property values.
+                                  e.g.
+                                    const object1 = {
+                                        a: 'somestring',
+                                        b: 42,
+                                        c: false
+                                    };
+                                    console.log(Object.values(object1));    // expected output: Array ["somestring", 42, false]
+
+        - Object.entries    ---> Method that returns an array of a given object's own enumerable string-keyed property 
+                                 [key, value] pairs.
+                                 e.g.
+                                    const object1 = {
+                                        a: 'somestring',
+                                        b: 42
+                                    };
+                                    console.log(Object.entries(object1)); 
+                                    // expected output:
+                                    // ["a", "somestring"]
+                                    // ["b". "42"]
+
+        - Object.keys       ---> Method that returns an array of a given object's own enumerable property names.
+                                 e.g.
+                                    const object1 = {
+                                        a: 'somestring',
+                                        b: 42,
+                                        c: false
+                                    };
+                                    console.log(Object.keys(object1)); // expected output: Array ["a", "b", "c"]
+
+        - Async Await
+
+-----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------- ES 10 -------------------------------------------------------------
+
+    - Important new features:
+        - .flat()           ---> Creates a new array with all sub-array elements concatenated into it recursively up to the 
+                                 specified depth.
+
+        - .flatMap()        ---> First maps each element using a mapping function, then flattens the result into a new array.
+                                 It is identical to a map() followed by a flat() of depth 
+
+        - .trimStart()      ---> Removes whitespace from the beginning of a string.
+
+        - .trimEnd()        ---> Removes whitespace from the end of a string.
+
+        - .fromEntries()    ---> Transform a list of key & value pairs into an object.
+
+        - Optional Catch Binding    ---> In the past catch clause from a try/catch statement required a variable. Now it allows 
+                                         developers to use try/catch without creating an unused binding.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- ES 2020 ------------------------------------------------------------
+
+    - Important new feature:
+        - BigInt    ---> New primitive wrapper object used to represent and manipulate primitive bigint values — which are too 
+                         large to be represented by the number primitive.
+
+        - Nullish Coalescing Operator ??    ---> Is a logical operator that returns its right-hand side operand when its left-hand 
+                                                 side operand is null or undefined, and otherwise returns its left-hand side 
+                                                 operand.
+
+        - Optional Chaining Operator ?.     ---> Enables you to read the value of a property located deep within a chain of 
+                                                 connected objects without having to check that each reference in the chain is 
+                                                 valid.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- ES 2020 ------------------------------------------------------------
+
+    - Important new feature:
+        - .replaceAll() ---> A method that returns a new string with all matches of a pattern replaced by a replacement.
+                             Syntax:
+                                str.replaceAll(substr, newSubstr);
+
+-----------------------------------------------------------------------------------------------------------------------------------
