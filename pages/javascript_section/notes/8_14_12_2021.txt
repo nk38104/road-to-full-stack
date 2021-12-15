@@ -92,3 +92,109 @@
     - https://codeburst.io/javascript-learn-to-chain-map-filter-and-reduce-acd2d0562cd4
 
 -----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- OBJECTS 2 ----------------------------------------------------------
+
+    -----------------------------------
+    --  PRIMITIVE AND REFERENCE TYPE --
+    -----------------------------------
+
+    - In JavaScript, a variable may store two types of values: primitive and reference.
+    
+    - Javascript has 6 data types that are passed by value: Boolean, null, undefined, String, Number and Symbol and these are 
+      called primitive types. If a primitive type is assigned to a variable, we can think of that variable as containing the 
+      primitive value.
+
+    - Variables that are assigned a non-primitive value are given a reference to that value. That reference points to the object’s 
+      location in memory. The variables don’t actually contain the value.
+      
+    - Javascript has 3 data types that are passed by reference: Array, Function, and Object. These are all technically 
+      Objects, so we’ll refer to them collectively as Objects.
+
+    - The size of a primitive value is fixed, therefore, JavaScript stores the primitive value on the stack, while on the other
+      hand the size of a reference value is dynamic so JavaScript stores the reference value on the heap.
+
+    e.g.
+        let a = 5;
+        let b = a;
+
+        b = 4;
+
+        console.log(a, b) --> outputs 5, 4;
+
+        On the other hand e.g.
+
+        const obj = { a : 'a' };
+        const obj2 = obj;
+
+        obj2.a = "b";
+
+        console.log(obj.a, obj2.a); --> outputs b, b
+
+    Good reasources:
+        - https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/
+        - https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0
+
+    -------------
+    -- CONTEXT --
+    -------------
+
+    - Sometimes the words “scope” and “context” are used interchangeably, which only leads to confusion because they are not the 
+      same thing. Scope pertains to the visibility of variables, and context refers to the object to which a function belongs.
+    
+    - In JavaScript, “context” refers to an object. Within an object, the keyword “this” refers to that object (i.e. “self”), and 
+      provides an interface to the properties and methods that are members of that object. When a function is executed, the 
+      keyword “this” refers to the object that the function is executed in.
+
+      e.g.
+        - When a function executes in the global context, “this” refers to the global, or “window” object.
+        - When a function is a method of an Object, “this” refers to that object (unless it is manually executed in the context of a different object).
+        - When a function executes inside of another function (no matter how deeply nested), “this” refers to the object whose context within which it is executed.
+        - When you instantiate a constructor function, inside of the instance object, “this” refers to the instance object.
+
+    Good resources:
+        - https://blog.kevinchisholm.com/javascript/context-object-literals/
+        - https://medium.com/swlh/understanding-context-in-js-eceb5ef1fa75
+        - https://www.debuggr.io/js-this-in-depth/
+        - https://blog.kevinchisholm.com/javascript/difference-between-scope-and-context/
+        - https://blog.pragmatists.com/the-many-faces-of-this-in-javascript-5f8be40df52e
+        - https://www.javascripttutorial.net/javascript-execution-context/
+
+    -------------------
+    -- INSTANTIATION --
+    -------------------
+
+    - An instantiation pattern in JavaScript is a way to create an object using functions. 
+      There are five instantiation patterns: Functional, Functional-shared, Prototypical, Pseudoclassical, and ES6.
+
+    Read further on:
+        - https://medium.com/@taylorshephard1/instantiation-patterns-in-javascript-7f9463b95839
+        - https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b
+        - https://dev.to/mconner89/a-quick-guide-to-instantiation-in-javascript-6n
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------- PASS BY VALUE VS PASS BY REFERENCE ---------------------------------------------
+
+    - https://www.geeksforgeeks.org/pass-by-value-and-pass-by-reference-in-javascript/
+
+-----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------ TYPE COERCION --------------------------------------------------------
+
+    - Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers).
+
+    - JavaScript has two characterized forms of coercion: implicit coercion and explicit coercion.
+
+        - Implicit coercion happens when JavaScript coerces the value type to the expected type under the hood.
+          This type of coercion happens without the developer noticing.
+
+        - Explicit coercion happens when we want to coerce the value type to a specific type. Most of the time, explicit coercion
+          in JavaScript happens using built-in functions such as String(), Number(), and Boolean().
+
+    - Try to avoid it in your code.
+
+    Good resources:
+        - https://blog.logrocket.com/type-coercion-in-javascript/
+        - https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
+        - https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion
+
+-----------------------------------------------------------------------------------------------------------------------------------
