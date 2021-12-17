@@ -52,7 +52,31 @@ console.log("Version 2:", question1_v2(array.flat(Infinity)));
 // The function should find two different numbers in the array that, when added together, give the target number.
 // For example: answer([1,2,3], 4)should return [1,3]
 
+function question2_v2(numbers, target) {
+    for(const [index, num] of numbers.entries()) {
+        if (numbers.includes(difference = target - num, index + 1)) {
+            return [num, difference];
+        }
+    }
+    return `There are no number pairs that get ${sum}.`;
+}
+
+function question2(numbers, target) {
+    const arrSize = numbers.length;
+
+    for(let i = 0; i < arrSize; ++i) {
+        if(numbers.includes(difference = target - numbers[i], i + 1)) {
+            return [numbers[i], difference];
+        }
+    }
+    
+    return `There are no number pairs that get ${target}.`;
+}
+
+const array2 = [[ 1, 2, 3, -1, 10, -56, -3 ], 0];
 console.log("\nQUESTION 2");
+console.log("Version 1:", question2(array2[0], array2[1]));
+console.log("Version 2:", question2(array2[0], array2[1]));
 
 // Question 3:
 // Write a function that converts HEX to RGB.
