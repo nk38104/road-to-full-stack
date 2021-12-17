@@ -41,10 +41,10 @@ function question1(array) {
     return organizedArray;
 }
 
-const array = [ 1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20, "1", "1"];
+const array = [ 1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, [1, 1], 20, 20, "1", "1"];
 console.log("QUESTION 1");
-console.log("Version 1:", question1(array));
-console.log("Version 2:", question1_v2(array));
+console.log("Version 1:", question1(array.flat(Infinity)));
+console.log("Version 2:", question1_v2(array.flat(Infinity)));
 
 
 // Question 2:
@@ -52,7 +52,7 @@ console.log("Version 2:", question1_v2(array));
 // The function should find two different numbers in the array that, when added together, give the target number.
 // For example: answer([1,2,3], 4)should return [1,3]
 
-
+console.log("\nQUESTION 2");
 
 // Question 3:
 // Write a function that converts HEX to RGB.
