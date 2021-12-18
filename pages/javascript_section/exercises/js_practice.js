@@ -92,13 +92,9 @@ console.log("Version 2:", question2_v2(array2[0], array2[1]));
 const checkIfNumber = num => typeof num === "number";
 const checkRGBValues = num => num < 256 && num > 0;
 
-let hexColor = "#428ef5";                 // hex format - # + 3 or 6 digit string
-const rgbColor = convertToRGB(hexColor);    // rgb format - 3 numbers from 0 to 255 representing red, green, blue
-
-
 // HEX --> RGB
 function convertToRGB(hexColor) {
-
+    
     if (hexColor.length != 7 && hexColor.length != 4) {
         return null;
     }
@@ -118,30 +114,29 @@ function componentToHex(component) {
 // This function can be called successfully in 2 ways
 // 1. convertToHex(number, number, number); ---> Function accepts 3 number parameters representing red, green and blue values (0 - 255)
 // 1. convertToHex(array);                  ---> Function accpets array consisting of 3 numbers representing red, green, blue values (0 - 255)
-function convertToHex(red, green, blue) {
+function convertToHex(rgbColor) {
 
-    if(arguments.length != 3 && arguments.length != 1) {
+    if(!Array.isArray(rgbColor) || rgbColor.length != 3) {
         return "Invalid arguments.";
     }
 
-    if(arguments.length === 1){
-        if(arguments[0].length != 3 || !Array.isArray(arguments[0])) {
-            return "Invalid arguments.";
-        }
-    }
-
-    let args = (arguments.length === 3) ? [...arguments] : arguments[0];
-
-    return (args.every(checkIfNumber || checkRGBValues)) ? `#${componentToHex(args[0])}${componentToHex(args[1])}${componentToHex(args[2])}` : "Invalid arguments.";
+    return (rgbColor.every(checkIfNumber || checkRGBValues)) ? `#${componentToHex(rgbColor[0])}${componentToHex(rgbColor[1])}${componentToHex(rgbColor[2])}` : "Invalid arguments.";
 }
 
+
+function convertColor(color) {
+    return (typeof color === "string") ? convertToRGB(color) : (Array.isArray(color)) ? convertToHex(color) : "Invalid arguments.";
+}
+
+
 console.log("\nQUESTION 3");
+let hexColor = "#428ef5";                   // hex format - # + 3 or 6 digit string
+const rgbColor = convertColor(hexColor);    // rgb format - 3 numbers from 0 to 255 representing red, green, blue
+
 console.log(`Hex ${hexColor} ==> rgb(${rgbColor})`);
 
-
 if((hexColor = rgbColor)) {
-    hexColor = convertToHex(rgbColor[0], rgbColor[1], rgbColor[2]);
-    // hexColor = convertToHex(rgbColor);
+    hexColor = convertColor(rgbColor);
 }
 
 console.log(`rgb(${rgbColor}) ==> ${hexColor}`);
