@@ -1,0 +1,89 @@
+#btn-add {
+    height: 40px;
+    width: 64px;
+    background-color: tomato;
+    border: 0;
+    border-radius: 0px 5px 5px 0px;
+    font-weight: bold;
+}
+
+#btn-add:hover {
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    height: 25px;
+    width: 25px;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    margin-left: auto;
+}
+
+.btn-delete:hover {
+    background-color: #28282B;
+}
+
+.container {
+    width: 70%;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+h4 {
+    margin: 5px 0px 50px 0px;
+}
+
+.input-section {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.tasks {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-align: left;
+}
+
+#task-input {
+    height: 32px;
+    width: 70%;
+    border: 3px solid tomato;
+    border-radius: 5px 0px 0px 5px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+#task-input:focus {
+    outline: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px  solid tomato;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
+
+.task-item input {
+    margin: 10px;
+}
+
+#task-list {
+    width: 60%;
+}

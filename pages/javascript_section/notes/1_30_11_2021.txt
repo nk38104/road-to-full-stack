@@ -1,0 +1,104 @@
+------------------------------------------------------------------ DATA STRUCTURES ------------------------------------------------------------------
+---------------------------------------------------------------------- ARRAYS -----------------------------------------------------------------------
+
+- So, second day in, after learning basics about functions I started with arrays. Untill now it's same thing as in other languages.
+  Initialization is same e.g.:	
+	var array = ["one", "two", "three"];
+  
+  Accesing array elements via index is also same e.g.:
+	array[1] - accesses second element in an array
+
+  We can also have an array of other types like for example booleans e.g.:
+	var states = [true, false, true, true, false]
+
+  Also we can have an array of functions e.g.:
+	var functions = [function greeting() { console.log("Hello!")}]
+
+  A list with mix type elements is also a possibility but it is not recommended e.g.
+	var mixedList = ["apples", 3, undefined, true, function greeting() { console.log("Hello!")}];
+
+  ---- COUPLE OF PREDEFINED ARRAY FUNCTIONS ----
+
+  array.shift();			-- moves array one place to the right(it really moves all elements to the left by removing the first element)
+  array.pop();				-- deletes the last elements
+  array.push(el);			-- adds element/s to the end of the array
+  array.concat(["bee", "deer"]); 	-- adds array to end of the array, concats them array1 + array2
+  array.sort();    			-- sorts the array. But only the original one, if we modified array without assigning it, it would not count
+
+- WARNING: There are some methods that change the original "object" like for example pop(), push(), sort(), etc. and we don't need to save the
+  change but there are also methods like for example concat() that does not change the original "object", it creates new objext/list so we have to 
+  save that change:
+	e.g.
+		var myList = ['banana', 'apple', 'orange'];
+		myList.concat(['mango']);
+		console.log(myList); --> outputs: 'banana', 'apple', 'orange' - it didnt change myList even though we invoked concat on it
+
+	 we have to save the change in another variable/object/... 
+	e.g.
+		var myList = ['banana', 'apple', 'orange'];
+		var newList = myList.concat(['mango']);
+	
+		console.log(myList); --> outputs: 'banana', 'apple', 'orange' - still didn't change
+		console.log(newList); --> outputs: 'banana', 'apple', 'orange', 'mango'
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------- OBJECTS ----------------------------------------------------------------------
+
+- They fall in two categories and those are data structures and types. Objects are collections of property e.g.:
+	var user = {
+		name: "John",
+		age: 34,
+		hobby: "Soccer",
+		isMarried: false,
+	};
+
+- As for now, to me it looks just like a classic dictionary because of key-value pairs and the syntax is familiar to me.
+- If we want to access an Object element instead of indexer we use in 2 ways:
+
+	1) preferred way is dot notation
+		e.g. user.name; or user.isMarried;
+	2) we can also use bracket notation
+		e.g. user["name"];
+
+- To add more properties we just add a new propery using dot notation and we can assing it a value 
+	e.g. user.favouriteFood = "spinach";
+
+- If we want to change property value we just assign new value to the property e.g. user.isMarried = true;
+
+- We can have arrays in objects and vice versa. For example, one of the properies can be a array with some values but we can also have 
+  a list of objects
+
+- Functions can be also added to objects aka methods.
+
+	e.g. list in object
+		var user = {
+			name: "John",
+			age: 34,
+			hobby: "Soccer",
+			isMarried: false,
+			spells: ["abrakadabra", "shazam"],
+			shout: function() { console.log("AAAAAAA!"); }, -- access with user.shout();
+		};
+
+	e.g. list of objects
+		var users = [
+		{
+			username: "andy",
+			password: "secret"
+		},
+		{
+			username: "jess",
+			password: "123"
+		}];
+
+- Function inside an object is called a method. 
+
+- Good resources:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- NULL ------------------------------------------------------------------------
+
+- Null is a special type that says the object is null,that means that there is nothing in the object. It is not same as an empty object.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,68 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------- HOW JAVASCRIPT WORKS? -----------------------------------------------------
+
+    - JavaScript is what is called a Client-side Scripting Language. That means that it is a computer programming language that 
+      runs inside an Internet browser. When the browser loads the page, the browser has a built-in interpreter that reads the 
+      JavaScript code it finds in the page and runs it.
+
+    - JavaScript is single-threaded and can be non-blocking.
+
+    ---------------
+    -- JS ENGINE --
+    ---------------
+
+        - It is a program or an interpreter which executes JavaScript code.
+        - Most popular JS Engine is Google's V8 (it is used inside Chrome and Node.js for example, written in C++).
+        - V8 translates JavaScript code into more efficient machine code instead of using an interpreter.
+          It compiles JavaScript code into machine code at execution by implementing a JIT (Just-In-Time) compiler.
+        - It consists of two main components:
+            - Memory Heap — this is where the memory allocation happens.
+            - Call Stack — this is where your stack frames are as your code executes.
+
+    --------------
+    -- WEB APIs --
+    --------------
+
+        - Provided by browsers, like the DOM, AJAX, setTimeout and more.
+
+    ----------------
+    -- CALL STACK --
+    ----------------
+
+        - It was mentioned that JS is a single-threaded programming language, which means it has a single Call Stack.
+        - Therefor it can do one thing at the time.
+        - The Call Stack is a data structure which records basically where in the program we are.
+        - If we step into a function, we put it on the top of the stack. If we return from a function, we pop off the top of 
+          the stack. That’s all the stack can do.
+        -Each entry in the Call Stack is called a Stack Frame.
+        
+    Good resources:
+        - https://dev.to/narottam04/how-javascript-works-visually-explained-269j
+        - https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf
+        - https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- MODULES ------------------------------------------------------------
+    
+    - As our application grows bigger, we want to split it into multiple files, so called “modules”. A module may contain a class 
+      or a library of functions for a specific purpose.
+    
+    - A module is just a file. One script is one module. As simple as that. Modules can load each other and use special directives
+      export and import to interchange functionality, call functions of one module from another one.
+      e.g.
+        //  📁 sayHi.js
+            export function sayHi(user) {
+            alert(`Hello, ${user}!`);
+            }
+
+            // 📁 main.js
+            import {sayHi} from './sayHi.js';
+
+            alert(sayHi); // function...
+            sayHi('John'); // Hello, John!
+
+    - Good resources:
+        - https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+        - https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc/
+        - https://www.programiz.com/javascript/modules

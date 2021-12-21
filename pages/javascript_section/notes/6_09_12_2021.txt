@@ -1,0 +1,159 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------- DESTRUCTURING -----------------------------------------------------------
+
+  - It is a JS expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+    e.g.
+	cont obj = {
+		player: "bobby",
+		experience: 100,
+		wizardLevel: false
+	}
+
+	// const player = obj.player;
+	// const experience = obj.experience;
+	// let wizardLevel = obj.wizardLevel;
+	
+	// This is the same as the code above
+	const { player, experience } = obj;
+	let { wizardLevel } = obj;
+
+	// Something like this is also possible
+	const name = "john snow";
+	const obj = {
+		[name] = "Hello",	// john snow: "Hello"
+		[1 + 2] = "Hi"		// 3: "Hi"
+	}
+
+	ALSO WE CAN DO THIS:
+	e.g.
+	
+		const a = "Test";
+		const b = true;
+		const c = {};
+
+		const obj = { a, b, c };
+		// that equals to 
+		// const obj = {
+		//	a: a,
+		//	b: b,
+		//	c: c
+		// }
+	So if property and value are the same you can remove the declaration with property and value
+
+    e.g.
+	let a, b, rest;
+	[a, b] = [10, 20];
+
+	[a, b, ...rest] = [10, 20, 30, 40, 50];
+	console.log(a);		// 10
+	console.log(b); 	// 20
+	console.log(rest); 	// [30, 40, 50]
+
+	({ a, b } = { a: 10, b: 20 });
+	console.log(a); // 10
+	console.log(b); // 20
+
+	// Stage 4(finished) proposal
+	({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+	console.log(a); // 10
+	console.log(b); // 20
+	console.log(rest); // {c: 30, d: 40}
+
+	const [firstElement, secondElement] = list;
+	// is equivalent to:
+	// const firstElement = list[0];
+	// const secondElement = list[1];
+
+  - For further info visit:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+	- https://dmitripavlutin.com/javascript-object-destructuring
+	- https://javascript.info/destructuring-assignment
+
+------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------- TEMPLATE STRINGS ---------------------------------------------------------
+
+  - Template literals are literals delimited with backticks (`), allowing embedded expressions called substitutions.
+
+  - Template literals are sometimes informally called template strings, but they aren't string literals and can't be used everywhere 
+    a string literal can be used. Also, a tagged template literal may not result in a string; it's up to the tag function what it 
+    creates (if anything).
+
+  - Template literals are enclosed by the backtick (` `) (grave accent) character instead of double or single quotes.
+
+  - Syntax:
+
+	e.g.
+		// Untagged, these create strings:
+		`string text`
+
+		`string text line 1
+		 string text line 2`
+
+		`string text ${expression} string text`
+
+		// Tagged, this calls the function "example" with the template as the
+		// first argument and substitution values as subsequent arguments:
+		example`string text ${expression} string text`
+
+  - Good resources:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+	- https://www.w3schools.com/js/js_string_templates.asp
+	- https://developers.google.com/web/updates/2015/01/ES6-Template-Strings
+	- https://www.javascripttutorial.net/es6/javascript-template-literals/
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- DEFAULT PARAMETERS --------------------------------------------------------
+
+  - They allow named parameters to be initialized with default values if no value or undefined is passed.
+	e.g.
+		function multiply(a, b = 1) {
+ 			return a * b;
+		}
+
+		console.log(multiply(5, 2));
+		// expected output: 10
+
+		console.log(multiply(5));
+		// expected output: 5
+  - Syntax:
+
+	- function fnName(param1 = defaultValue1, ..., paramN = defaultValueN) { ... }
+
+  - Good resources:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+	- https://www.w3schools.com/howto/howto_js_default_parameters.asp
+	- https://www.digitalocean.com/community/tutorials/understanding-default-parameters-in-javascript
+	- https://dotnettutorials.net/lesson/javascript-default-parameters/w
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------- SYMBOL --------------------------------------------------------------
+
+  - Symbol is a built-in object whose constructor returns a symbol primitive — also called a Symbol value or just a Symbol — that’s 
+    guaranteed to be unique. Symbols are often used to add unique property keys to an object that won’t collide with keys any other 
+    code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object.
+
+  - That enables a form of weak encapsulation, or a weak form of information hiding.
+
+  - Every Symbol.for("key") call will always return the same Symbol for a given value of "key". When Symbol.for("key") is called, 
+    if a Symbol with the given key can be found in the global Symbol registry, that Symbol is returned. Otherwise, a new Symbol is created, 
+    added to the global Symbol registry under the given key, and returned.
+
+  - They are not used very ofter.
+
+   e.g.
+
+	let sym1 = Symbol()
+	let sym2 = Symbol('foo')
+	let sym3 = Symbol('foo')
+
+	Symbol('foo') === Symbol('foo')  // false
+	let sym = new Symbol()  // TypeError
+
+  - Good resources:
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+	- https://flaviocopes.com/javascript-symbols/
+	- https://www.programiz.com/javascript/symbol
+	- https://hacks.mozilla.org/2015/06/es6-in-depth-symbols/
+
+------------------------------------------------------------------------------------------------------------------------------------------

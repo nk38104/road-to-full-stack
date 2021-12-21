@@ -1,0 +1,91 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ SCOPE ----------------------------------------------------------------- 
+
+  - Scope means variable access, what variables can certain part of your code access when a code is running.
+	
+  ----------------
+  -- ROOT SCOPE --
+  ----------------
+
+  - By default in JavaScript when you start you are in the root scope, which is the window object.
+    Variables in root scope are just like global variables, to my understanding so far. So any variable declared/defined in root scope 
+    can be accessed from anywhere in the script. For example, we can access the variable from any new or old function we create/d so we 
+    don't need to declare/define a new variable.
+	e.g.
+		var button = document.getElementById("btn-play");
+
+		function setPlayButton() {
+			button.style.color = "red";
+		}
+
+		function addEventToPlayButton() {
+			button.addEventListener("click", play);
+		}
+  
+  - In this case we didn't need to initialize new variable and get the button, we used already initialized variable with 
+    the object we needed.
+
+  -----------------
+  -- CHILD SCOPE --
+  -----------------
+
+  - On the other hand variables declared\defined in child scope can be accessed only within specific place e.g. function.
+	e.g.
+		var button = document.getElementById("btn-play");
+
+		function setPlayButton() {
+			var button = document.getElementById("btn-play");
+			button.style.color = "red";
+			unsetPlayButton();
+		}
+
+		function unsetPlayButton() {
+			button.style.color = "blue";
+		}
+
+		function addEventToPlayButton() {
+			button.addEventListener("click", play);
+		}
+
+  -  In this case, button object in setPlayButton() is totally different from button in root scope. What we do in this setPlayButton()
+     function will not change the button in root scope at all.
+     Also in unsetPlayButton() we change button from root scope, not the button from setPlayButton(). 
+     We can access the setPlayButton() button only within that function and from nowhere else.
+		
+  - TIP: AVOID NAMING CONFLICT WHEN NAMING VARIABLES IN YOUR CODE (name variables that are in root and child scope differently).
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------- CONDITIONALS 2 ------------------------------------------------------------
+	
+  - Here ternary operator and switch statement were covered and because I was already introduced to these concepts and 
+    the syntax was something I already knew there was nothing new I've learned.
+
+  ----------------------
+  -- TERNARY OPERATOR --
+  ----------------------
+
+  - Syntax:
+	
+	(condition) ? expression1 : expression2;
+
+
+  ----------------------
+  -- SWITCH STATEMENT --
+  ----------------------
+
+  - Syntax:
+
+	switch(expression):
+		case value1:
+			do something;
+			break;
+		case value2:
+			do something;
+			break;
+		.
+		.	
+		.
+		default:
+			do something;
+
+------------------------------------------------------------------------------------------------------------------------------------------

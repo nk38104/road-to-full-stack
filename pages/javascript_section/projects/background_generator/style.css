@@ -1,0 +1,51 @@
+.container {
+    color: rgba(0, 0, 0, .5);
+    font: 'Raleway', sans-serif;
+    letter-spacing: .5em;
+    text-align: center;
+    text-transform: uppercase;
+    top: 15%;
+}
+
+h1 {
+    width: 100%;
+    color: rgba(0, 0, 0, .5);
+    font: 600 3.5 em 'Raleway', sans-serif;
+    letter-spacing: .5em;
+    padding-top: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: rgba(0, 0, 0, .5);
+    font: 900 1em 'Raleway', sans-serif;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-transform: none;
+}
+
+input[type = "color"]:hover, #rand-btn:hover {
+    transform: scale(1.05);
+}
+
+.page-link a, .logo a {
+    color:  rgba(0, 0, 0, .5);
+    font-weight: bold;
+}
+
+.page-link a:hover {
+    color: white;
+}
+
+#rand-btn {
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    box-shadow: 1px 2px black;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 2em;
+    width: 120px;
+    margin: 10px;
+}

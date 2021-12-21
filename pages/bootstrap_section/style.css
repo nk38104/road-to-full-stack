@@ -1,6 +1,6 @@
 body,
 html {
-    background: url(images/startup-img.jpg) no-repeat center fixed;
+    background: url(./images/startup_img.jpg) no-repeat center fixed;
     background-size: cover;
     color: #ff7f50;
     font-family: sans-serif;
@@ -33,7 +33,7 @@ html {
 }
 
 .navbar-toggler-icon {
-    background-image: url(./images/menu-4-16.png);
+    background-image: url(./images/hamburger_menu.png);
 }
 
 h1 {

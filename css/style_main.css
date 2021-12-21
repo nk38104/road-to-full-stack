@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    color: white;
+    background-size: 100% 100%;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------- */
+/* ---------------- NAVBAR ---------------- */
+/* ---------------------------------------- */
+
+a {
+    text-decoration: none;
+    color: #ff7f50;
+}
+
+a:hover {
+    color: lightsalmon;
+}
+
+div.navbar {
+    padding: 11px 0px;
+    border-bottom: 1px solid white;
+}
+
+.logo {
+    float: left;
+    font-size: 20px;
+    padding: 5px 0px;
+}
+
+.page-link {
+    float: right;
+    font-size: 1rem;
+    padding: 8px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px 12px;
+}
+
+/* ---------------------------------------- */

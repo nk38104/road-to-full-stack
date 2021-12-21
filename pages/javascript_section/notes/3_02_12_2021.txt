@@ -1,0 +1,70 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ DOM MANIPULATION -----------------------------------------------------------------
+
+  -------------------------
+  -- DOM Selectors (II.) --
+  -------------------------
+
+  - Changing style:
+
+	1) we can use setAttribute();
+		e.g. document.querySelector("li").setAttribute(attributeName, attributeValue);
+
+	2) also by using style tag style.{property}:
+		e.g. document.querySelector("h1").style.background = "yellow";
+
+	3) With those 2 ways we have problem with SoC (Separation of concerns). (Sidenote: using second option is OK.)
+	   HTML should focus on the text, CSS on the style and JS on the actions.
+	   So one of the better ways to do this is to style a class in .css, 
+	   than with className and classList property add that class name to the element.
+	   e.g.
+		CSS file
+		.done {
+			text-decoration: 
+		}
+
+		JS file
+		document.querySelector("li").className = "done";
+
+	    With classList we use add method to add a class name, because as the name says it is a list
+	    	e.g. document.querySelector("li").classList.add("done");
+
+  - WARNING: don't use syntax as it was used untill now for selectors, CACHE SELECTORS IN VARIABLES
+	e.g. 
+		var li = document.querySelector("li");
+		li.className = "done";
+
+
+  ----------------
+  -- DOM Events --
+  ----------------
+
+  - They allow JavaScript to register different event handlers on elements in an HTML document.
+  
+  - Events are normally used in combination with functions, and the function will not be executed before the event occurs 
+    e.g. when a user clicks a button.
+  
+  - We add a listener that waits for action/event to be triggered and after that we execute what we want to happen according to it. 
+    Most used events are keyboard and mouse events.
+  
+  - Resource: 
+	- https://developer.mozilla.org/en-US/docs/Web/Events
+	- https://www.w3schools.com/Jsref/dom_obj_event.asp
+
+  ------------------------
+  -- CALLBACK FUNCTION --
+  ------------------------
+
+  - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some 
+    kind of routine or action.
+
+  - When that line of JavaScript runs, we don't want the saveTaskAfterClick function(javascript section -> toDo projects) to run because we are just
+    adding the event listener now to wait for click to happen. 
+    We want to let it know that we want this action to happen when an event happens. So the function then gets automatically run every time wanted 
+    event happens(adds the ()). 
+    We first we are just passing a reference to the function without running it.
+
+    e.g. 
+	button.addEventListener("click", saveTaskAfterClick);   // Event is click, and callback funtion is saveTaskAfterClick. There is no ().
+	
+-----------------------------------------------------------------------------------------------------------------------------------------------------
