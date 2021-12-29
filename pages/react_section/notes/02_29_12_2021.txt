@@ -1,0 +1,98 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------- PROPS -----------------------------------------------------------------------
+
+    - Props are arguments passed into React components.
+
+     e.g.
+        const myelement = <Car brand="Ford" />;
+
+        - The component receives the argument as a props object
+            e.g.
+                ---- FUNCTIONAL COMPONENT ----
+                function Car(props) {
+                    return <h2>I am a { props.brand }!</h2>;
+                }
+
+                ---- CLASS COMPONENT ----
+
+                import { Component } from 'react';
+
+                class CAr extends Component {
+                    render() {
+                        return <h2>I am a { this.props.brand }!</h2>;;
+                    }
+                }
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- FRAGMENTS ---------------------------------------------------------------------
+
+    - One element should always be returned from a component. Because of that components usually end up wrapped inside div tags.
+      This was an issues because it adds extra level of nesting that we don't actuallty need.
+
+        e.g.
+            ---- WRONG ----
+            function FAQ() {
+                return (
+                    <p>Q. What is React?</p>
+                    <p>A. A JavaScript library for building user interfaces</p>
+                    <p>Q. How do I render sibling elements?</p>
+                    <p>A. Use Fragments</p>
+                );
+            }
+            ----------------
+
+            ---- CORRECT ----
+            function FAQ() {
+                return (
+                    <div>
+                        <p>Q. What is React?</p>
+                        <p>A. A JavaScript library for building user interfaces</p>
+                        <p>Q. How do I render sibling elements?</p>
+                        <p>A. Use Fragments</p>
+                    </div>
+                );
+            }
+            ------------------
+    
+    - To solve extra nesting we can return an array of elements:
+        e.g.
+            function FAQ() {
+                return [
+                    <p>Q. What is React?</p>,
+                    <p>A. A JavaScript library for building user interfaces</p>,
+                    <p>Q. How do I render sibling elements?</p>,
+                    <p>A. Use Fragments</p>
+                ];
+            }
+        
+        OR we have a cleaner solution from v16.2 which is to use Fragments
+        e.g.
+            function FAQ() {
+                return (
+                    <React.Fragment>
+                        <p>Q. What is React?</p>
+                        <p>A. A JavaScript library for building user interfaces</p>
+                        <p>Q. How do I render sibling elements?</p>
+                        <p>A. Use Fragments</p>
+                    </React.Fragment>
+                );
+            }
+    
+    - We no longer need to provide keys, we don’t need to add array commas, and we still avoid adding an extraneous DOM element because 
+      React.Fragment doesn’t become an actual element during rendering.
+
+    - However, an even better method is to use the shorthand syntax for Fragments, which looks like empty tags: <> and </>.
+      The only thing that the shorthand syntax doesn’t support for now is adding a key. If you need them, use the standard syntax.
+        e.g.
+            function FAQ() {
+                return (
+                    <>
+                        <p>Q. What is React?</p>
+                        <p>A. A JavaScript library for building user interfaces</p>
+                        <p>Q. How do I render sibling elements?</p>
+                        <p>A. Use Fragments</p>
+                    </>
+                );
+            }
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
