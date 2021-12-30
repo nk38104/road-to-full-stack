@@ -4,7 +4,7 @@ import Card from './Card';
 
 const CardList = ({ robots }) => {
     return (
-        <>
+        <div>
             {
                 robots.map(user => {
                     return (<Card 
@@ -15,7 +15,7 @@ const CardList = ({ robots }) => {
                     );
                 })
             }
-        </>
+        </div>
     );
 }
 
