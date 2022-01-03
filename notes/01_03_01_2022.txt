@@ -98,3 +98,24 @@
         - https://developers.squarespace.com/what-is-json
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------ AJAX -----------------------------------------------------------------------
+
+    - AJAX (Asynchronous JavaScript and XML), while not a technology in itself, is a term coined in 2005 that describes a "new" approach to using a 
+      number of existing technologies together, including HTML or XHTML, CSS, JavaScript, DOM, XML, XSLT, and most importantly the XMLHttpRequest 
+      object.
+
+    - XMLHttpRequest object to request the data from a web server, JS and DOM to display or use the data.
+
+    - When these technologies are combined in the Ajax model, web applications are able to make quick, incremental updates to the user interface 
+      without reloading the entire browser page. This makes the application faster and more responsive to user actions.
+    
+    - With it you can:
+        - update a web page without reloading the page
+        - request data from a server after the page has loaded
+        - receive data from a server after the page has loaded
+        - send data to a server in the background
+    
+    - More on:
+        - https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
