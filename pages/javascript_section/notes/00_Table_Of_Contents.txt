@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------- TABLE OF CONTENTS ---------------------------------------------------------------
 
-    -   Day 0: 
+    -   Day 1: 
             - GENERAL
             - VARIABLES
             - TYPECAST
@@ -12,52 +12,52 @@
             - CONSOLE.LOG()
             - FUNCTIONS
 
-    -   Day 1: 
+    -   Day 2: 
             - ARRAYS
             - OBJECTS
             - NULL
 
-    -   Day 2:
+    -   Day 3:
             - LOOPS 2(for, while, do-while, forEach)
             - DOM MANIPULATION(selectors)
 
-    -   Day 3:
+    -   Day 4:
             - DOM MANIPULATION 2(selectors 2, events, callback functions)
 
-    -   Day 4:
+    -   Day 5:
             - SCOPE
             - CONDITIONALS 2(ternary operator, switch statement)
 
-    -   Day 5:
+    -   Day 6:
             - ES5/6
             - VARIABLES 2(let, const)
 
-    -   Day 6:
+    -   Day 7:
             - DESTRUCTURING
             - TEMPLATE STRINGS
             - DEFAULT PARAMETERS
             - SYMBOL
 
-    -   Day 7:
+    -   Day 8:
             - ARROW FUNCTIONS
             - CLOSURES
             - CURRYING
             - COMPOSE
 
-    -   Day 8:
+    -   Day 9:
             - ARRAYS 2(map, filter, reduce)
             - OBJECTS 2(reference type, context, instantiation)
             - PASS BY VALUE VS REFERENCE
             - TYPE COERCION
 
-    -   Day 9:
+    -   Day 10:
             - ES7
             - ES8
             - ES10
             - ES2020
             - ES2021
 
-    -   Day 10:
+    -   Day 11:
             - HOW JAVASCRIPT WORKS?
             - MODULES
 
