@@ -77,3 +77,24 @@
         - https://developer.mozilla.org/en-US/docs/Web/HTTP
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------ JSON -----------------------------------------------------------------------
+
+    - JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is a text format that is completely language independent but 
+      uses conventions that are familiar to programmers.
+
+    - JSON is built on two structures:
+        
+        1) A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, 
+           keyed list, or associative array.
+        2) An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
+
+    - In JSON, they take on these forms:
+        
+        1)  An object that is an unordered set of name/value pairs. It begins with {left brace and ends with }right brace.
+            Each name is followed by :colon and the name/value pairs are separated by ,comma.
+
+    - More on:
+        - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+        - https://developers.squarespace.com/what-is-json
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
