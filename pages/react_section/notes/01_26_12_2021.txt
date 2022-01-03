@@ -1,0 +1,118 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------- GENERAL ----------------------------------------------------------------------
+
+    - React is a JavaScript library that aims to simplify UI development.
+
+    - Developed at Facebook and released to the world in 2013.
+
+    - Its primary goal is to make it easy to reason about an interface and its state at any point in time, by dividing the UI into a collection of 
+      components.
+    
+    - React uses Virtual DOM, thereby creating web applications faster. Virtual DOM compares the component's previous states and updates only the 
+      items in the Real DOM that were changed, instead of updating all of the components again, as conventional web applications do.
+    
+    - React follows a unidirectional data flow. This means that when designing a React app, developers often nest child components within parent
+      components. Since the data flows in a single direction, it becomes easier to debug errors and know where a problem occurs in an application 
+      at the moment in question.
+    
+    - Good resources:
+      - https://www.simplilearn.com/tutorials/reactjs-tutorial/what-is-reactjs
+      - https://www.freecodecamp.org/news/everything-you-need-to-know-about-react-eaedf53238c4/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ CREATING AN APP ------------------------------------------------------------------
+
+  - Simplest way is using npx, but we can also use npm or yarn.
+
+  - NPX e.g. npx create-react-app my-app
+  
+  - NPM e.g. npm init react-app my-app
+
+  - YARN e.g. yarn create react-app my-app
+
+  - Resource:
+    - https://create-react-app.dev/docs/getting-started/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------ REACT COMPONENT ------------------------------------------------------------------
+
+  - It is a bit of code that represents a piece of the page. Each component is a JavaScript function that returns a piece of code that represents a 
+    piece of a web page.
+  
+   - React uses a language called JSX that looks like HTML but works inside JavaScript, which HTML usually doesn’t do.
+      e.g.
+        <script type="text/babel">
+          function MyFirstComponent() {
+            return (
+              <h1>Hello, I am a React Component!</h1>    
+            );  
+          }
+        </script>
+  
+  - We can use ReactDOM to put it on page.
+    e.g.
+      <script type="text/babel">
+        function MyFirstComponent() {
+          return (
+            <h1>Hello, I am a React Component!</h1>
+          );
+        }
+
+        const placeWeWantToPutComponent = document.getElementById('hook');
+        ReactDOM.render(MyFirstComponent(), placeWeWantToPutComponent);
+      </script>
+    
+      OR
+
+      ReactDOM.render(<OurFirstComponent />, placeWeWantToPutComponent); --> this is standard
+  
+  - Components can be put inside another components
+    e.g.
+      <script type="text/babel">
+        function OurFirstComponent() {
+          return (
+            <h1>I am the child!</h1>
+          );
+        }
+
+        function Container() {
+          return (
+            <div>
+              <h1>I am the parent!</h1>
+              <OurFirstComponent />
+            </div>
+          );
+        }
+        
+        const placeWeWantToPutComponent = document.getElementById('hook');
+        ReactDOM.render(<Container />, placeWeWantToPutComponent);
+      </script>
+  
+  ----------------------
+  -- CLASS COMPONENTS --
+  ----------------------
+
+  - So far, in these examples components were written as functions. These are called functional components.
+
+  - Components can we writen as JavaScript classes also. These are called class components.
+    e.g.
+      class Container extends React.Component {
+        render() {
+          return (
+            <div>
+              <h1>I am the parent!</h1>
+              <OurFirstComponent />
+            </div>
+          );
+        }
+      }
+
+      const placeWeWantToPutComponent = document.getElementById('hook');
+      ReactDOM.render(<Container />, placeWeWantToPutComponent);
+  
+  - Class components must have a function called render(). The render function returns the JSX of the component. They can be used the same way as 
+    functional components.
+
+  - Functional components should be used over class components because they’re easier to read, unless you need component state.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
