@@ -48,3 +48,23 @@
     the use of ordinary try / catch blocks around asynchronous code.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------- ES9 -----------------------------------------------------------------------
+  
+  - New features:
+   
+        1) Object spread operator - spread syntax (...) for objects to unpack elements.
+        
+        2) finally()              - method that returns a Promise. When the promise is settled, i.e either fulfilled or rejected, the specified 
+                                    callback function is executed. This provides a way for code to be run whether the promise was fulfilled 
+                                    successfully or rejected once the Promise has been dealt with.
+        
+        3) for await of           - creates a loop iterating over async iterable objects as well as on sync iterables, including: built-in String, 
+                                    Array, Array-like objects (e.g., arguments or NodeList), TypedArray, Map, Set, and user-defined async/sync 
+                                    iterables.
+
+                                  - Syntax:
+                                    for await (const variable of iterable) {
+                                      statement
+                                    }
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
