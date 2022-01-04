@@ -1,0 +1,50 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------- PROMISES ---------------------------------------------------------------------
+
+    - A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous 
+      action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of 
+      immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.
+    
+    - Simply said a promise is an object that may produce a single value some time in the future. Either a resolved value or a reason that it's not 
+      resolved (rejected). It represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+    - A Promise is in one of these states:
+
+        1) pending: initial state, neither fulfilled nor rejected.
+        2) fulfilled: meaning that the operation was completed successfully.
+        3) rejected: meaning that the operation failed.
+
+    - A pending promise can either be fulfilled with a value or rejected with a reason (error). When either of these options happens, the associated 
+      handlers queued up by a promise's then method are called. If the promise has already been fulfilled or rejected when a corresponding handler 
+      is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being 
+      attached.
+    
+    - More on:
+      - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+      - https://medium.com/codex/javascript-promise-for-dummies-f3e763c2ec26
+      - https://javascript.info/promise-basics
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------- ASYNC/AWAIT -------------------------------------------------------------------
+
+  - An async function is a function declared with the async keyword, and the await keyword is permitted within them.
+
+  - The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly 
+    configure promise chains.
+  
+  - Return value is a Promise which will be resolved with the value returned by the async function, or rejected with an exception thrown from, or 
+    uncaught within, the async function.
+
+  - Syntax:
+    e.g.
+      async function name([param[, param[, ...param]]]) {
+        statements
+      }
+  
+  - Async functions can contain zero or more await expressions.
+
+  -  Await expressions make promise-returning functions behave as though they're synchronous by suspending execution until the returned promise is 
+     fulfilled or rejected. The resolved value of the promise is treated as the return value of the await expression. Use of async and await enables 
+    the use of ordinary try / catch blocks around asynchronous code.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
