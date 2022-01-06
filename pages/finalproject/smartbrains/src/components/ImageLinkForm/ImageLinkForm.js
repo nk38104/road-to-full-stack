@@ -9,9 +9,9 @@ const ImageLinkForm = () => {
                 {'The SmartBrain will detect faces in your images. Give it a try.'}
             </p>
             <div className="center">
-                <div className="form center pa4 br3 shadow-5">
+                <div className="form center pa4 br3 shadow-5 bg-lightest-blue">
                     <input className="f4 pa2 w-70 center br3 br--left" type="text"/>
-                    <button className="f4 w-30 black grow link ph3 pv2 dib bg-light-blue br3 br--right">Detect</button>
+                    <button className="f4 w-30 black grow link ph3 pv2 dib br3 br--right">Detect</button>
                 </div>
             </div>
         </div>

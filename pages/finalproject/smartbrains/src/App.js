@@ -4,12 +4,15 @@ import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
+import Particles from 'react-tsparticles';
+import particlesOptions from './tsparticles';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Particles className="tsparticles" options={particlesOptions} />
         <Navigation />
         <Logo />
         <Rank />
