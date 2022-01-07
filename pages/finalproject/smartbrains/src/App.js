@@ -7,11 +7,11 @@ import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Particles from 'react-tsparticles';
 import particlesOptions from './tsparticles';
-import Clarifai from "clarifai";
+import Clarifai from 'clarifai';
 
 
-const app = new Clarifai.App({
-  apiKey: "e80301fd2e9743fe9576acb4a154a234",
+const clarifai = new Clarifai.App({
+  apiKey: "YOUR API KEY",
 });
 
 class App extends Component {
@@ -30,8 +30,8 @@ class App extends Component {
   onButtonSubmit  = () => {
     this.setState({ imageUrl: this.state.input });
 
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input )
+    clarifai.models
+      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then(
         function(response) {
           console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
