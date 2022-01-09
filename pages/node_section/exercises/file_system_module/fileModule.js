@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+
 // READ
 fs.readFile(`${__dirname}\\test.txt`, (err, data) => {
     if(err) {
