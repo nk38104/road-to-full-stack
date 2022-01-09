@@ -1,32 +1,32 @@
 const fs = require("fs");
 
 // READ
-fs.readFile("./test.txt", (err, data) => {
+fs.readFile(`${__dirname}\\test.txt`, (err, data) => {
     if(err) {
         console.log(error);
     }
     console.log("Async: ", data.toString()); 
 });
 
-const file = fs.readFileSync("./test.txt");
+const file = fs.readFileSync(`${__dirname}\\test.txt`);
 console.log("Sync: ", file.toString());
 
 // APPEND
-fs.appendFile("./test.txt", " Added text.", err => {
+fs.appendFile(`${__dirname}\\test.txt`, " Added text.", err => {
     if(err) {
         console.log(err);
     }
 });
 
 // WRITE
-fs.writeFile("greeting.txt", "Hello, User! Welcome to my file.", err => {
+fs.writeFile(`${__dirname}\\greeting.txt`, "Hello, User! Welcome to my file.", err => {
     if(err) {
         console.log(err);
     }
 });
 
 // DELETE
-fs.unlink("./greeting.txt", err => {
+fs.unlink(`${__dirname}\\greeting.txt`, err => {
     if (err) {
         console.log(err);
     }
