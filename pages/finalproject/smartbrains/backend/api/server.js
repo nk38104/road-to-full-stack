@@ -36,7 +36,7 @@ const database = {
 }
 
 app.get("/", (req, resp) => {
-    resp.send("Hello, there. Welcome to Home page!");
+    resp.send(database.users);
 });
 
 app.post("/signin", (req, resp) => {
@@ -47,6 +47,21 @@ app.post("/signin", (req, resp) => {
     else {
         resp.status(400).json("Error loggin in.");
     }
+});
+
+app.post("/register", (req, resp) => {
+    const { email, username, password } = req.body;
+
+    database.users.push({
+        id:         "125",
+        username:   username,
+        password:   password,
+        email:      email,
+        entries:    0,
+        joined:     new Date(),
+    });
+
+    resp.json(database.users[database.users.length - 1]);
 });
 
 app.listen(3000, () => {
