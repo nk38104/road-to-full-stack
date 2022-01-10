@@ -13,7 +13,7 @@ function GoToFloor(direction, instructionId, santa) {
     if(direction === '(') {
         santa.onFloor += 1;
     }
-    if(direction === ')') {
+    else if(direction === ')') {
         santa.onFloor -= 1;
         CheckIfEnteredBasement(instructionId, santa);
     }
@@ -47,5 +47,6 @@ function DeliverPresents() {
     }
 }
 
-
+console.time("Deliver duration");
 console.log(DeliverPresents());
+console.timeEnd("Deliver duration");
