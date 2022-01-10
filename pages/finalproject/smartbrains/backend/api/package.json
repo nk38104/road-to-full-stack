@@ -9,6 +9,7 @@
   "author": "Nikola Kelava",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.2",
     "nodemon": "^2.0.15"
   }

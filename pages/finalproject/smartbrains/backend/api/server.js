@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require('bcryptjs');
 
 /*
     -------------
@@ -19,8 +20,8 @@ const database = {
         {
             id:         "123",
             username:   "John",
-            password:   "john123",
             email:      "john@gmail.com",
+            password:   "john123",
             entries:    0,
             joined:     new Date(),
         },
@@ -33,6 +34,13 @@ const database = {
             joined:     new Date(),
         }
     ],
+    login: [
+        {
+            id:     "978",
+            has:    "",
+            email:  "john@gmail.com",
+        },
+    ]
 }
 
 app.get("/", (req, resp) => {
@@ -40,22 +48,22 @@ app.get("/", (req, resp) => {
 });
 
 app.post("/signin", (req, resp) => {
-    if(req.body.email === database.users[0].email &&
-        req.body.password === database.users[0].password) {
-            resp.json("You are logged in.");
-    }
-    else {
-        resp.status(400).json("Error loggin in.");
-    }
+    const { email, password } = req.body;
+
+    const userCheck = database.users.filter(user => (user.email === email) && (bcrypt.compareSync(password, user.password)));
+
+    return (userCheck) ? resp.json("You are logged in!") : resp.status(400).json("Error loggin in!");
 });
 
 app.post("/register", (req, resp) => {
     const { email, username, password } = req.body;
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(password, salt);
 
     database.users.push({
         id:         "125",
         username:   username,
-        password:   password,
+        password:   hash,
         email:      email,
         entries:    0,
         joined:     new Date(),
@@ -84,7 +92,7 @@ app.put("/image", (req, resp) => {
     const { id } = req.body;
     let found = false;
 
-    database.users.forEach(user => {
+    database.users.forEach (user => {
         if (user.id === id) {
             found = true;
             return resp.json(++(user.entries));
