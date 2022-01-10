@@ -80,6 +80,22 @@ app.get("/profile/:id", (req, resp) => {
     }
 });
 
+app.put("/image", (req, resp) => {
+    const { id } = req.body;
+    let found = false;
+
+    database.users.forEach(user => {
+        if (user.id === id) {
+            found = true;
+            return resp.json(++(user.entries));
+        }
+    });
+
+    if(!found) {
+        resp.status(404).json("User not found.");
+    }
+});
+
 app.listen(3000, () => {
     console.log("App is running on port 3000.");
 });
