@@ -20,19 +20,13 @@ class App extends Component {
   	constructor() {
     	super();
     	this.state = {
-    		input: "",
-      		imageUrl: "",
-      		box: {},
-			route: "signin",
-			isSignedIn: false,
+    		input: 		"",
+      		imageUrl:	"",
+      		box: 		{},
+			route:		"signin",
+			isSignedIn:	false,
     	}
   	}
-	
-	componentDidMount() {
-		fetch("http://localhost:3000")
-		.then(response => response.json())
-		.then(console.log);
-	}
 
   	calculateFaceLocation = (data) => {
     	const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;

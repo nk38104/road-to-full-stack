@@ -23,14 +23,14 @@ const database = {
             id:         "123",
             username:   "John",
             email:      "john@gmail.com",
-            password:   "john123",
+            password:   "$2a$10$cPfElAngdytPFvPvIn1JueYbU5IWsfbymidNf8/UNPDV.6U8Z1ewK", //  john123
             entries:    0,
             joined:     new Date(),
         },
         {
             id:         "124",
             username:   "Liza",
-            password:   "liza123",
+            password:   "$2a$10$RH2bdExOgs9.2uG4qCNWa.ipxD5RN3getuGt50N/58VkgQLr0Uple", //  liza123
             email:      "liza@gmail.com",
             entries:    0,
             joined:     new Date(),
@@ -54,7 +54,7 @@ app.post("/signin", (req, resp) => {
 
     const userCheck = database.users.filter(user => (user.email === email) && (bcrypt.compareSync(password, user.password)));
 
-    return (userCheck) ? resp.json("You are logged in!") : resp.status(400).json("Error loggin in!");
+    return (userCheck.length > 0) ? resp.json("success") : resp.status(400).json("Error loggin in!");
 });
 
 app.post("/register", (req, resp) => {
