@@ -5,17 +5,17 @@ class SignIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            signInEmail:    "",
-            signInPassword: "",
+            email:    "",
+            password: "",
         }
     }
 
     onEmailChange = (event) => {
-        this.setState({ signInEmail: event.target.value });
+        this.setState({ email: event.target.value });
     }
 
     onPasswordChange = (event) => {
-        this.setState({ signInPassword: event.target.value });
+        this.setState({ password: event.target.value });
     }
 
     onSubmitSignIn = () => {
@@ -23,8 +23,8 @@ class SignIn extends React.Component {
             method: "post",
             headers:{"Content-Type" : "application/json"},
             body:   JSON.stringify({
-                        email:      this.state.signInEmail,
-                        password:   this.state.signInPassword
+                        email:      this.state.email,
+                        password:   this.state.password
                     })
         })
         .then(response => response.json())
