@@ -1,6 +1,7 @@
 // task url: https://adventofcode.com/2015/day/1
 const fs = require("fs");
 
+
 function DeliverPresents() {
     fs.readFile(`${__dirname}\\instructions.txt`, (err, data) => {
         const instructions = [...data.toString()];
@@ -23,6 +24,7 @@ function DeliverPresents() {
         console.log(`Instructions took Santa on floor n.${onFloor}!`);
     });
 }
+
 
 console.time("Deliver duration");
 DeliverPresents();
