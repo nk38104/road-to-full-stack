@@ -54,7 +54,7 @@ app.post("/signin", (req, resp) => {
 
     const userCheck = database.users.filter(user => (user.email === email) && (bcrypt.compareSync(password, user.password)));
 
-    return (userCheck.length > 0) ? resp.json("success") : resp.status(400).json("Error loggin in!");
+    return (userCheck.length > 0) ? resp.json(userCheck[0]) : resp.status(400).json("Error loggin in!");
 });
 
 app.post("/register", (req, resp) => {
