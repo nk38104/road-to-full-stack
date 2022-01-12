@@ -3,20 +3,20 @@ const bcrypt        = require('bcryptjs');
 const cors          = require("cors");
 const knex          = require("knex");
 const app_passwords = require("./my_passwords");
+const { response } = require("express");
 
 
 // Database connection settings
-const postgres = knex({
+const database = knex({
     client: "pg",
     connection: {
         host: "127.0.0.1",
         user: "postgres",
-        password: app_passwords.POSTGRES_PASSWORD,
+        port: 5432,
+        password: app_passwords.POSTGRES_PASSWORD, // Make your my_password.js file and export passwords from there or enter your database password here and delete app_passwords variable
         database: "smartbrain",
     }
 });
-
-postgres.select("*").from("users");
 
 /*
     -------------
@@ -33,7 +33,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const database = {
+const databaseTemp = {
     users: [
         {
             id:         "123",
@@ -62,13 +62,12 @@ const database = {
 }
 
 app.get("/", (req, resp) => {
-    resp.send(database.users);
+    resp.send(databaseTemp.users);
 });
 
 app.post("/signin", (req, resp) => {
     const { email, password } = req.body;
-
-    const userCheck = database.users.filter(user => (user.email === email) && (bcrypt.compareSync(password, user.password)));
+    const userCheck = databaseTemp.users.filter(user => (user.email === email) && (bcrypt.compareSync(password, user.password)));
 
     return (userCheck.length > 0) ? resp.json(userCheck[0]) : resp.status(400).json("Error loggin in!");
 });
@@ -77,23 +76,22 @@ app.post("/register", (req, resp) => {
     const { email, username, password } = req.body;
     var hash = bcrypt.hashSync(password, 10);
 
-    database.users.push({
-        id:         "125",
+    database("users")
+    .returning("*")
+    .insert({ 
         username:   username,
-        password:   hash,
         email:      email,
-        entries:    0,
-        joined:     new Date(),
-    });
-
-    resp.json(database.users[database.users.length - 1]);
+        joined:     new Date()
+    })
+    .then(user => { resp.json(user) })
+    .catch(resp.status(400).json("Unable to register."));
 });
 
 app.get("/profile/:id", (req, resp) => {
     const { id } = req.params;
     let found = false;
 
-    database.users.filter(user => {
+    databaseTemp.users.filter(user => {
         if (user.id === id) {
             found = true;
             return resp.json(user);
@@ -109,7 +107,7 @@ app.put("/image", (req, resp) => {
     const { id } = req.body;
     let found = false;
 
-    database.users.forEach (user => {
+    databaseTemp.users.forEach (user => {
         if (user.id === id) {
             found = true;
             return resp.json(++(user.entries));
