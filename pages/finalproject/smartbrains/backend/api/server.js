@@ -89,18 +89,15 @@ app.post("/register", (req, resp) => {
 
 app.get("/profile/:id", (req, resp) => {
     const { id } = req.params;
-    let found = false;
 
-    databaseTemp.users.filter(user => {
-        if (user.id === id) {
-            found = true;
-            return resp.json(user);
+    database.select("*").from("users").where( { id: id })
+    .then(user => {
+        if (user.length) {
+            resp.json(user[0])
+        } else {
+            resp.status(400).json("Not found");
         }
     });
-
-    if(!found) {
-        resp.status(404).json("User not found.");
-    }
 });
 
 app.put("/image", (req, resp) => {
