@@ -2,7 +2,6 @@ const express       = require("express");
 const bcrypt        = require('bcryptjs');
 const cors          = require("cors");
 const knex          = require("knex");
-const app_passwords = require("./my_passwords");
 
 
 // Database connection settings
@@ -11,7 +10,7 @@ const postgres = knex({
     connection: {
         host: "127.0.0.1",
         user: "postgres",
-        password: app_passwords.POSTGRES_PASSWORD,
+        password: "YOUR DATABASE PASSWORD",
         database: "smartbrain",
     }
 });
