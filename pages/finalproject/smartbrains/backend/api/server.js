@@ -84,7 +84,7 @@ app.post("/register", (req, resp) => {
         joined:     new Date()
     })
     .then(user => { resp.json(user) })
-    .catch(resp.status(400).json("Unable to register."));
+    .catch(() => resp.status(400).json("Unable to register."));
 });
 
 app.get("/profile/:id", (req, resp) => {
@@ -102,18 +102,14 @@ app.get("/profile/:id", (req, resp) => {
 
 app.put("/image", (req, resp) => {
     const { id } = req.body;
-    let found = false;
-
-    databaseTemp.users.forEach (user => {
-        if (user.id === id) {
-            found = true;
-            return resp.json(++(user.entries));
-        }
-    });
-
-    if(!found) {
-        resp.status(404).json("User not found.");
-    }
+    
+    database("users").where("id", "=", id)
+    .increment("entries", 1)
+    .returning("entries")
+    .then(entries => {
+        resp.json(entries[0]);
+    })
+    .catch(() => resp.status(400).json("Error while trying to do the operation on db."));
 });
 
 app.listen(3000, () => {
