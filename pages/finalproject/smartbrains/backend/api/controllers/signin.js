@@ -1,6 +1,10 @@
 
 const handleSignIn = (req, resp, database, bcrypt) => {
     const { email, password } = req.body;
+
+    if (!email || !password) {
+        return resp.status(400).json("Incorrect form submission!");
+    }
     
     database.select("email", "hash")
     .from("login")
