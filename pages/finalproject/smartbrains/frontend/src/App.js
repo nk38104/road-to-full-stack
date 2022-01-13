@@ -16,23 +16,26 @@ const clarifai = new Clarifai.App({
 	apiKey: "c7cfe8527a43436dbfecb0c45c36ee56",
 });
 
+const initialState = {
+	input: 		"",
+		imageUrl:	"",
+		box: 		{},
+	route:		"signin",
+	isSignedIn:	false,
+	user: {
+		id:         "",
+		username:   "",
+		email:      "",
+		entries:    0,
+		joined:     "",
+	}
+}
+
 class App extends Component {
   	constructor() {
     	super();
-    	this.state = {
-    		input: 		"",
-      		imageUrl:	"",
-      		box: 		{},
-			route:		"signin",
-			isSignedIn:	false,
-			user: {
-				id:         "",
-				username:   "",
-				email:      "",
-				entries:    0,
-				joined:     "",
-			}
-    	}
+		this.state = initialState;
+    	
   	}
 
 	loadUser = (userData) => {
@@ -60,7 +63,12 @@ class App extends Component {
   	}
 
 	onRouteChange = (route) => {
-		this.setState({ isSignedIn: (route === "home") ? true : false });
+		if (route === "home") {
+			this.setState({ isSignedIn: true });
+		} else if (route === "signout") {
+			this.setState(initialState);
+		}
+
 		this.setState({ route: route });
 	}
 
@@ -81,13 +89,14 @@ class App extends Component {
 				if (response) {
 					fetch("http://localhost:3000/image", {
 						method: "put",
-						headers:{"Content-Type" : "application/json"},
+						headers:{"Content-Type": "application/json"},
 						body:   JSON.stringify({
-									id:      this.state.user.id,
+									id:	this.state.user.id
 								})
 					})
 					.then(response => response.json())
-					.then(count => this.setState(Object.assign(this.state.user, { entries: count })));
+					.then(count => { this.setState(Object.assign(this.state.user, { entries: count })) })
+					.catch(err => console.log(err));
 				}
 				this.displayFaceBox(this.calculateFaceLocation(response))
 			}).catch(err => console.log(err));
@@ -101,14 +110,14 @@ class App extends Component {
 				<Particles	className="tsparticles" options={particlesOptions} />
 				<Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}/>
 				{
-					route === "home" ?
-						<div>
+					(route === "home")
+					?	<div>
 							<Logo />
 							<Rank username={this.state.user.username} entries={this.state.user.entries} />
 							<ImageLinkForm	 onInputChange={this.onInputChange} onImageSubmit={this.onImageSubmit} />
 							<FaceRecognition imageUrl={imageUrl} box={box} />
 						</div>
-					: 	(route === "signin"
+					: 	((route === "signin")
 							? <SignIn	loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 							: <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 						)
