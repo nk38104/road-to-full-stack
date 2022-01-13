@@ -1,3 +1,16 @@
+const app_passwords = require("../my_passwords"); 
+const Clarifai      = require('clarifai');
+
+
+const clarifai = new Clarifai.App({
+	apiKey: app_passwords.CLARIFAI_API_KEY,
+});
+
+const handleFaceDetectionAPICall = (req, resp) => {
+    clarifai.models.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
+    .then(data => { resp.json(data) })
+    .catch(err => resp.status(400).json("Unable to work with face detection API!"));
+}
 
 const handleImage = (req, resp, database) => {
     const { id } = req.body;
@@ -12,5 +25,6 @@ const handleImage = (req, resp, database) => {
 };
 
 module.exports = {
-    handleImage: handleImage
+    handleImage: handleImage,
+    handleFaceDetectionAPICall: handleFaceDetectionAPICall
 }

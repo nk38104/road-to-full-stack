@@ -46,6 +46,7 @@ app.post("/register", (req, resp) => { register.handleRegister(req, resp, databa
 app.get("/profile/:id", (req, resp) => { profile.handleProfileGet(req, resp, database) });
 
 app.put("/image", (req, resp) => { image.handleImage(req, resp, database) });
+app.post("/image-detect", (req, resp) => { image.handleFaceDetectionAPICall(req, resp) });
 
 
 app.listen(3000, () => {
