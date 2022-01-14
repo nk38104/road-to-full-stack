@@ -1,9 +1,8 @@
-const app_passwords = require("../my_passwords"); 
-const Clarifai      = require('clarifai');
+const Clarifai = require('clarifai');
 
 
 const clarifai = new Clarifai.App({
-	apiKey: app_passwords.CLARIFAI_API_KEY,
+	apiKey: process.env.CLARIFAI_API_KEY,
 });
 
 const handleFaceDetectionAPICall = (req, resp) => {
