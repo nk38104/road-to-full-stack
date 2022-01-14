@@ -1,8 +1,9 @@
-const Clarifai = require('clarifai');
+const Clarifai  = require('clarifai');
+const config    = require('../config');
 
 
 const clarifai = new Clarifai.App({
-	apiKey: process.env.CLARIFAI_API_KEY,
+	apiKey: config.CLARIFAI_API_KEY,
 });
 
 const handleFaceDetectionAPICall = (req, resp) => {

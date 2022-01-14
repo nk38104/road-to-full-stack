@@ -1,11 +1,12 @@
-const express       = require("express");
-const bcrypt        = require('bcryptjs');
-const cors          = require("cors");
-const knex          = require("knex");
-const register      = require("./controllers/resgister");
-const signin        = require("./controllers/signin");
-const profile       = require("./controllers/profile");
-const image         = require("./controllers/image");
+const express   = require("express");
+const bcrypt    = require('bcryptjs');
+const cors      = require("cors");
+const knex      = require("knex");
+const register  = require("./controllers/resgister");
+const signin    = require("./controllers/signin");
+const profile   = require("./controllers/profile");
+const image     = require("./controllers/image");
+const config    = require('./config');
 
 
 // Database connection settings
@@ -15,7 +16,7 @@ const database = knex({
         host: "127.0.0.1",
         user: "postgres",
         port: 5432,
-        password: `${process.env.POSTGRES_PASSWORD}`,
+        password: config.DATABASE_PASSWORD,
         database: "smartbrain",
     }
 });
@@ -34,7 +35,6 @@ const database = knex({
 const app = express();
 app.use(express.json());
 app.use(cors());
-const PORT = process.env.PORT;
 
 app.get("/", (req, resp) => { resp.send(database.select("*").from("users")) });
 
@@ -48,7 +48,6 @@ app.put("/image", (req, resp) => { image.handleImage(req, resp, database) });
 app.post("/image-detect", (req, resp) => { image.handleFaceDetectionAPICall(req, resp) });
 
 
-app.listen(PORT, () => {
-    console.log(process.env);
-    console.log(`App is running on port ${PORT}.`);
+app.listen(config.PORT, () => {
+    console.log(`App is running on port ${config.PORT}.`);
 });
