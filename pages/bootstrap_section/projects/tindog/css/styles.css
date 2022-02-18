@@ -70,12 +70,12 @@ body {
     color: #ff4c68;
 }
 
-.feature-box h3 {
+.feature-box h3, #pricing h3 {
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.feature-box p {
+.feature-box p, #pricing p {
     color: #8f8f8f;
 }
 
@@ -86,7 +86,7 @@ body {
     color: white;
 }
 
-#testimonials h2 {
+#testimonials h2, #pricing h2 {
     font-size: 3rem;
     font-weight: 900;
     line-height: 1.5;
@@ -112,4 +112,14 @@ body {
 .press-logo {
     margin: 20px 20px 50px; 
     width: 15%;
+}
+
+
+/* Pricing Section */
+#pricing {
+    padding: 100px;
+}
+
+.pricing-col {
+    padding: 3% 2%;
 }
