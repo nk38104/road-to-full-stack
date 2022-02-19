@@ -2,22 +2,44 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+
+/* Containers */
+.container-fluid {
+    padding: 7% 15%;
+}
+
+
+/* Headings */
+.heading-bold-ls {
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.heading-lg {
+    font-size: 3.5rem;
+}
+
+.heading-md {
+    font-size: 3rem;
+}
+
+.heading-sm {
+    font-size: 1.5rem;
+}
+
+
+/*---- Title Section ----*/
 #title {
     background-color: #ff4c68;
     color: white;
 }
 
-.container-fluid {
+#title .container-fluid {
     padding: 3% 15% 7%;
 }
 
-.title-h1 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1.5;
-}
 
-/* Navigation Bar */
+/*---- Navigation Bar ----*/
 .navbar {
     padding: 0 0 4.5rem;
 }
@@ -38,10 +60,10 @@ body {
 }
 
 
-/* Download Buttons */
+/*---- Download Buttons ----*/
 .btn-dark:hover {
-    background-color: #8f8f8f;
-    border-color: black;
+    background-color: white;
+    color: black;
 }
 
 .download-button {
@@ -49,7 +71,7 @@ body {
 }
 
 
-/* Title Image */
+/*---- Title Image ----*/
 .title-img-container {
     position: relative;
 }
@@ -61,10 +83,9 @@ body {
 }
 
 
-/* Features Section */
+/*---- Features Section ----*/
 #features {
     background-color: white;
-    padding: 7% 15%;
     position: relative;
     z-index: 1;
 }
@@ -82,26 +103,15 @@ body {
     color: #ff4c68;
 }
 
-.feature-box h3, #pricing h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
 .feature-box p, #pricing p, #footer p {
     color: #8f8f8f;
 }
 
 
-/* Testimonials Section */
+/*---- Testimonials Section ----*/
 #testimonials {
     background-color: #ef8172;
     color: white;
-}
-
-#testimonials h2, #pricing h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1.5;
 }
 
 .testimonial-img {
@@ -110,12 +120,8 @@ body {
     width: 10%;
 }
 
-.carousel-item, #cta {
-    padding: 7% 15%;
-}
 
-
-/* Press Section */
+/*---- Press Section ----*/
 #press {
     background-color: #ef8172;
     padding-bottom: 3%;
@@ -127,7 +133,7 @@ body {
 }
 
 
-/* Pricing Section */
+/*---- Pricing Section ----*/
 #pricing {
     padding: 100px;
 }
@@ -141,20 +147,13 @@ body {
 }
 
 
-/* Call to Action Section */
+/*---- Call to Action Section ----*/
 #cta {
     background-color: #ff4c68;
     color: white;
 }
 
-#cta h3 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1.5;
-}
-
-
-/* Footer Section */
+/*---- Footer Section ----*/
 #footer {
     background-color: white;
     padding: 5%;
@@ -173,7 +172,7 @@ body {
 }
 
 
-/* Title Section MQ */
+/*---- Title Section MQ ----*/
 @media (max-width: 1028px) {
     #title {
         text-align: center;
@@ -185,7 +184,7 @@ body {
     }
 }
 
-/* Footer Section MQ */
+/*---- Footer Section MQ ----*/
 @media (min-width: 1028px) {
     #footer i {
         font-size: 1.5rem;
