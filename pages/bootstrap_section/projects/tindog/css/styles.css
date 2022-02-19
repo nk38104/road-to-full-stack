@@ -17,7 +17,6 @@ body {
     line-height: 1.5;
 }
 
-
 /* Navigation Bar */
 .navbar {
     padding: 0 0 4.5rem;
@@ -40,6 +39,11 @@ body {
 
 
 /* Download Buttons */
+.btn-dark:hover {
+    background-color: #8f8f8f;
+    border-color: black;
+}
+
 .download-button {
     margin: 5% 3% 5% 0;
 }
@@ -83,7 +87,7 @@ body {
     font-weight: bold;
 }
 
-.feature-box p, #pricing p {
+.feature-box p, #pricing p, #footer p {
     color: #8f8f8f;
 }
 
@@ -106,7 +110,7 @@ body {
     width: 10%;
 }
 
-.carousel-item {
+.carousel-item, #cta {
     padding: 7% 15%;
 }
 
@@ -137,6 +141,38 @@ body {
 }
 
 
+/* Call to Action Section */
+#cta {
+    background-color: #ff4c68;
+    color: white;
+}
+
+#cta h3 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+
+/* Footer Section */
+#footer {
+    background-color: white;
+    padding: 5%;
+}
+
+#footer i {
+    margin: 20px 10px;
+}
+
+#footer i:hover {
+    transform: scale(1.2);
+}
+
+#footer a {
+    color: black;
+}
+
+
 /* Title Section MQ */
 @media (max-width: 1028px) {
     #title {
@@ -146,5 +182,12 @@ body {
     .title-img {
         position: static;
         transform: rotate(0);
+    }
+}
+
+/* Footer Section MQ */
+@media (min-width: 1028px) {
+    #footer i {
+        font-size: 1.5rem;
     }
 }
