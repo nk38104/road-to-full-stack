@@ -1,6 +1,13 @@
 let drumButtons = document.querySelectorAll("button.drum");
 
 
+function drumButtonClickAnimation(key) {
+    let activeDrumButton = document.querySelector(`.${key}`);
+    
+    activeDrumButton.classList.add("pressed");
+    setTimeout(() => activeDrumButton.classList.remove("pressed"), 100);
+}
+
 function playDrumSound(key) {
     switch(key) {
         case "w":
@@ -25,10 +32,17 @@ function playDrumSound(key) {
             new Audio("sounds/kick-bass.mp3").play();
             break;
         default:
-            console.log(`Pressed key($${key}) not bound to any sound.`);
+            console.log(`Pressed key(${key}) not bound to any sound.`);
     }
 }
 
 
-drumButtons.forEach(btn => btn.addEventListener("click", (event) => playDrumSound(event.target.textContent)));
-document.addEventListener("keydown", (event) => playDrumSound(event.key));
+drumButtons.forEach(btn => btn.addEventListener("click", (event) => {
+    playDrumSound(event.target.textContent);
+    drumButtonClickAnimation(event.target.textContent);
+}));
+
+document.addEventListener("keydown", (event) => {
+    playDrumSound(event.key);
+    drumButtonClickAnimation(event.key);
+});
