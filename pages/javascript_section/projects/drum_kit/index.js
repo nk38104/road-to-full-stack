@@ -1,7 +1,7 @@
 let drumButtons = document.querySelectorAll("button.drum");
 
 
-function handleClick(event) {
+function handleClick() {
     console.log("Clicked");
 }
 
