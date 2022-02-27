@@ -1,5 +1,4 @@
 /* ------------------------------------------------------------------------------------------
-
     LOOP:
         1. Wait for keypress for game to start
         2. When click is registered start the game:
@@ -21,16 +20,35 @@
                     3.3.1.4 Reset the game to init state and go back to step 1
                 3.3.2 If correct:
                     3.3.2. Go to step 3.1
-
  ------------------------------------------------------------------------------------------*/
+
+const initGameState = {
+    colors: ["green", "red", "blue", "yellow"],
+    currentLevel: "Press ANY key to start the game",
+    currentColorSequence: [],
+    isGameOver: false,
+    generateNextColor: function() {
+        let randomColorIndex = Math.floor(Math.random() * 3);
+        this.currentColorSequence.push(this.colors[randomColorIndex]);
+    }
+}
 
 $("[type='button']").click(function() {
     let $this = $(this);
-    
+
     $this.addClass("pressed");
     new Audio(`sounds/${$this.attr("id")}.mp3`).play();
-
+    
     setTimeout(function() {
         $this.removeClass("pressed");
     }, 100);
+});
+
+$(document).keypress(function() {
+    let currentGame = { ...initGameState };
+    $("h1").text(`Level ${currentGame.currentLevel = 1}`);
+ 
+    currentGame.generateNextColor();
+
+    console.log(currentGame.currentColorSequence);
 });
