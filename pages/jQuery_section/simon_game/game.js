@@ -21,16 +21,34 @@
                 3.3.2 If correct:
                     3.3.2. Go to step 3.1
  ------------------------------------------------------------------------------------------*/
-
-const initGameState = {
-    colors: ["green", "red", "blue", "yellow"],
-    currentLevel: "Press ANY key to start the game",
-    currentColorSequence: [],
+ 
+ const initialGameObj = {
+    buttonColors: ["green", "red", "blue", "yellow"],
+    currentLevel: 1,
+    colorSequence: [],
     isGameOver: false,
     generateNextColor: function() {
         let randomColorIndex = Math.floor(Math.random() * 3);
-        this.currentColorSequence.push(this.colors[randomColorIndex]);
+        this.colorSequence.push(this.buttonColors[randomColorIndex]);
+    },
+    flashColorSequence: function() {
+        this.colorSequence.forEach((color, index) => {
+            flashAnimation(color, index);
+        });
     }
+}
+
+function flashAnimation(color, index) {
+    let colorButton = $(`#${color}`);
+    let delay = index * 500;
+
+    setTimeout(function() {
+        colorButton.addClass("hide");
+    }, delay);
+
+    setTimeout(function() {
+        colorButton.removeClass("hide");
+    }, delay + 100);
 }
 
 $("[type='button']").click(function() {
@@ -44,11 +62,11 @@ $("[type='button']").click(function() {
     }, 100);
 });
 
-$(document).keypress(function() {
-    let currentGame = { ...initGameState };
-    $("h1").text(`Level ${currentGame.currentLevel = 1}`);
- 
-    currentGame.generateNextColor();
+$(document).ready().keypress(function() {
+    let currentGameObj = { ...initialGameObj };
 
-    console.log(currentGame.currentColorSequence);
+    $("h1").text(`Level ${currentGameObj.currentLevel}`);
+    
+    currentGameObj.generateNextColor();
+    currentGameObj.flashColorSequence();
 });
