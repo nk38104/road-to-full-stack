@@ -22,11 +22,15 @@
                     3.3.2. Go to step 3.1
  ------------------------------------------------------------------------------------------*/
  
- const initialGameObj = {
-    buttonColors: ["green", "red", "blue", "yellow"],
+const initGameState = {
     currentLevel: 1,
     colorSequence: [],
     isGameOver: false,
+}
+
+ const game = {
+    ...initGameState,
+    buttonColors: ["green", "red", "blue", "yellow"],
     generateNextColor: function() {
         let randomColorIndex = Math.floor(Math.random() * 3);
         this.colorSequence.push(this.buttonColors[randomColorIndex]);
@@ -38,35 +42,54 @@
     }
 }
 
+function delay(n) {  
+    n = n || 2000;
+    return new Promise(done => {
+        setTimeout(() => {
+        done();
+        }, n);
+    });
+}
+
 function flashAnimation(color, index) {
     let colorButton = $(`#${color}`);
-    let delay = index * 500;
+    let animationDelay = index * 500;
 
     setTimeout(function() {
         colorButton.addClass("hide");
-    }, delay);
+    }, animationDelay);
 
     setTimeout(function() {
         colorButton.removeClass("hide");
-    }, delay + 100);
+    }, animationDelay + 100);
 }
 
-$("[type='button']").click(function() {
-    let $this = $(this);
+function bindPressedAnimation(element) {
+    $(element).click(function() {
+        let $this = $(this);
+    
+        $this.addClass("pressed");
+        new Audio(`sounds/${$this.attr("id")}.mp3`).play();
+        
+        setTimeout(function() {
+            $this.removeClass("pressed");
+        }, 100);
+    });
+}
 
-    $this.addClass("pressed");
-    new Audio(`sounds/${$this.attr("id")}.mp3`).play();
+$(document).keypress(async function() {
+
+    $("h1").text(`Level ${game.currentLevel}`);
+    
+    $("[type='button']").off("click");
     
     setTimeout(function() {
-        $this.removeClass("pressed");
-    }, 100);
-});
+        game.generateNextColor();
+        game.flashColorSequence();
+    }, 1000);
 
-$(document).ready().keypress(function() {
-    let currentGameObj = { ...initialGameObj };
-
-    $("h1").text(`Level ${currentGameObj.currentLevel}`);
+    await delay((game.colorSequence.length * 500) + 1500);  
+    bindPressedAnimation("[type='button']");
     
-    currentGameObj.generateNextColor();
-    currentGameObj.flashColorSequence();
+    ++(game.currentLevel);
 });
