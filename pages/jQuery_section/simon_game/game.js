@@ -21,75 +21,86 @@
                 3.3.2 If correct:
                     3.3.2. Go to step 3.1
  ------------------------------------------------------------------------------------------*/
- 
-const initGameState = {
+
+ const simonGame = {
+    buttonColors: ["green", "red", "blue", "yellow"],
     currentLevel: 1,
     colorSequence: [],
-    isGameOver: false,
-}
+    userColorSequence: [],
+    hasStarted: false,
+    isOver: false,
+    play: function() {
+        this.hasStarted = true;
+        
+        // Disable clicks while color sequence is displaying so user can't interrupt it and miss color flash
+        let colorButtons = $("[type='button']");
+        colorButtons.off("click");
+        
+        changeHeaderText(`Level ${this.currentLevel}`);
+        
+        setTimeout(() => this.nextSequence(), 1000);
+        
+        // Re-enable click event to color buttons because it's users turn to repeat the sequence
+        setTimeout(() => pressedAnimation(colorButtons), (this.colorSequence.length * 500) + 2000);
 
- const game = {
-    ...initGameState,
-    buttonColors: ["green", "red", "blue", "yellow"],
-    generateNextColor: function() {
-        let randomColorIndex = Math.floor(Math.random() * 3);
-        this.colorSequence.push(this.buttonColors[randomColorIndex]);
+        ++(simonGame.currentLevel);
     },
-    flashColorSequence: function() {
+    nextSequence: function() {
+        this.colorSequence.push(generateNextColor(this.buttonColors));
+        this.displayColorSequence();
+    },
+    displayColorSequence: function() {
         this.colorSequence.forEach((color, index) => {
-            flashAnimation(color, index);
+            flashColorAnimation(color, index);
         });
+    },
+    reset: function() {
+        this.currentLevel = 1,
+        this.colorSequence = [],
+        this.userColorSequence = [],
+        this.hasStarted = false,
+        this.isOver = false
     }
 }
 
-function delay(n) {  
-    n = n || 2000;
-    return new Promise(done => {
-        setTimeout(() => {
-        done();
-        }, n);
-    });
+function changeHeaderText(headerText) {
+    $("h1").text(headerText);
 }
 
-function flashAnimation(color, index) {
-    let colorButton = $(`#${color}`);
-    let animationDelay = index * 500;
-
-    setTimeout(function() {
-        colorButton.addClass("hide");
-    }, animationDelay);
-
-    setTimeout(function() {
-        colorButton.removeClass("hide");
-    }, animationDelay + 100);
+function generateNextColor() {
+    const randomColorIndex = Math.floor(Math.random() * 3);
+    return simonGame.buttonColors[randomColorIndex];
 }
 
-function bindPressedAnimation(element) {
-    $(element).click(function() {
+function flashColorAnimation(color, index) {
+    let colorButton = $(`#${color}`), animationDelay = index * 500;
+    
+    addClassWithDelay(colorButton, "hide", animationDelay);
+    removeClassWithDelay(colorButton, "hide", animationDelay + 100);
+}
+
+function addClassWithDelay(element, className, delay) {
+    setTimeout(() => element.addClass(className), delay);
+}
+
+function removeClassWithDelay(element, className, delay) {
+    setTimeout(() => element.removeClass(className), delay);
+}
+
+function pressedAnimation(element) {
+    element.click(function() {
         let $this = $(this);
     
-        $this.addClass("pressed");
-        new Audio(`sounds/${$this.attr("id")}.mp3`).play();
-        
-        setTimeout(function() {
-            $this.removeClass("pressed");
-        }, 100);
+        addClassWithDelay($this, "pressed", 0);
+        playSound(`${$this.attr("id")}.mp3`);
+        removeClassWithDelay($this, "pressed", 100);
     });
 }
 
-$(document).keypress(async function() {
+function playSound(soundFileName) {
+    new Audio(`sounds/${soundFileName}`).play();
+}
 
-    $("h1").text(`Level ${game.currentLevel}`);
-    
-    $("[type='button']").off("click");
-    
-    setTimeout(function() {
-        game.generateNextColor();
-        game.flashColorSequence();
-    }, 1000);
-
-    await delay((game.colorSequence.length * 500) + 1500);  
-    bindPressedAnimation("[type='button']");
-    
-    ++(game.currentLevel);
+$(document).keypress(() => {    
+    simonGame.play();
 });
