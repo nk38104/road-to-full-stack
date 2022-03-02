@@ -1,76 +1,84 @@
-/* ------------------------------------------------------------------------------------------
-    LOOP:
-        1. Wait for keypress for game to start
-        2. When click is registered start the game:
-            2.1 Change h1 to current level
-            2.2 Generate next color (random number from 0 to 3)
-            2.3 Add that color to color sequence
-            2.4 Flash color sequence for user on screen
-            * --- Disable any click registration while previous steps are happening ---- *
-        3. When previous steps are done it's users turn to play:
-            3.1 Wait for user click or keypress(bind wasd keys to colors):
-                3.1.1 Make button pressed effect
-                3.1.2 Make button sound
-            3.2 Check if game over state is false (while loop)
-            3.3 Check if pressed button is in right sequence:
-                3.3.1 If not:
-                    3.3.1.1 Turn background to red
-                    3.3.1.2 Play game over sound
-                    3.3.1.3 Inform player that it's game over
-                    3.3.1.4 Reset the game to init state and go back to step 1
-                3.3.2 If correct:
-                    3.3.2. Go to step 3.1
- ------------------------------------------------------------------------------------------*/
 
- const simonGame = {
+const simonGame = {
     buttonColors: ["green", "red", "blue", "yellow"],
+    gameButtons: $("[type='button']"),
     currentLevel: 1,
     colorSequence: [],
     userColorSequence: [],
+    userGuessCount: 0,
     hasStarted: false,
-    isOver: false,
     play: function() {
         this.hasStarted = true;
         
-        // Disable clicks while color sequence is displaying so user can't interrupt it and miss color flash
-        let colorButtons = $("[type='button']");
-        colorButtons.off("click");
-        
-        changeHeaderText(`Level ${this.currentLevel}`);
-        
-        setTimeout(() => this.nextSequence(), 1000);
-        
-        // Re-enable click event to color buttons because it's users turn to repeat the sequence
-        setTimeout(() => pressedAnimation(colorButtons), (this.colorSequence.length * 500) + 2000);
+        // Disable clicks so that user can't interrupt color sequence display and miss color flash
+        this.gameButtons.off("click");
 
-        ++(simonGame.currentLevel);
+        this.nextSequence();
+        
+        // Enable click event to color buttons because it's users turn to repeat the sequence
+        setTimeout(() => addPressedAnimationEvent(this.gameButtons), (this.colorSequence.length * 500) + 2000);
     },
     nextSequence: function() {
-        this.colorSequence.push(generateNextColor(this.buttonColors));
-        this.displayColorSequence();
+        let $this = this;
+        this.userColorSequence = [];
+        this.userGuessCount = 0;
+        
+        changeHeaderText(`Level ${this.currentLevel}`);
+
+        setTimeout(function() {
+            $this.colorSequence.push(generateNextColor(this.buttonColors));
+            $this.displayColorSequence();
+        }, 1000);
     },
     displayColorSequence: function() {
         this.colorSequence.forEach((color, index) => {
             flashColorAnimation(color, index);
         });
     },
+    checkUserSequence: function() {
+        if(this.colorSequence[this.userGuessCount] === this.userColorSequence[this.userGuessCount]) {
+            ++(this.userGuessCount);
+            
+            if(this.colorSequence.length === this.userColorSequence.length) {
+                ++(this.currentLevel);
+                this.play();
+            }
+        } else {
+            this.lost();
+        }
+    },
+    lost: function() {
+        playSound("wrong.mp3");
+        let body = $("body");
+        
+        body.addClass("game-over");
+        changeHeaderText("Game Over, Press Any Key to Restart");
+        removeClassWithDelay(body, "game-over", 200);
+        
+        this.reset();
+        this.gameButtons.off("click");
+    },
     reset: function() {
         this.currentLevel = 1,
         this.colorSequence = [],
         this.userColorSequence = [],
+        this.userGuessCount = 0,
         this.hasStarted = false,
         this.isOver = false
     }
 }
 
+
 function changeHeaderText(headerText) {
     $("h1").text(headerText);
 }
+
 
 function generateNextColor() {
     const randomColorIndex = Math.floor(Math.random() * 3);
     return simonGame.buttonColors[randomColorIndex];
 }
+
 
 function flashColorAnimation(color, index) {
     let colorButton = $(`#${color}`), animationDelay = index * 500;
@@ -79,28 +87,38 @@ function flashColorAnimation(color, index) {
     removeClassWithDelay(colorButton, "hide", animationDelay + 100);
 }
 
+
 function addClassWithDelay(element, className, delay) {
     setTimeout(() => element.addClass(className), delay);
 }
+
 
 function removeClassWithDelay(element, className, delay) {
     setTimeout(() => element.removeClass(className), delay);
 }
 
-function pressedAnimation(element) {
-    element.click(function() {
-        let $this = $(this);
-    
-        addClassWithDelay($this, "pressed", 0);
-        playSound(`${$this.attr("id")}.mp3`);
-        removeClassWithDelay($this, "pressed", 100);
-    });
-}
 
 function playSound(soundFileName) {
     new Audio(`sounds/${soundFileName}`).play();
 }
 
-$(document).keypress(() => {    
-    simonGame.play();
+
+function addPressedAnimationEvent(element) {
+    element.click(function() {
+        let $this = $(this);
+        simonGame.userColorSequence.push($this.attr("id"));
+    
+        playSound(`${$this.attr("id")}.mp3`);
+        $this.addClass("pressed");
+        removeClassWithDelay($this, "pressed", 100);
+
+        simonGame.checkUserSequence();
+    });
+}
+
+
+$(document).keypress(() => {
+    if(!simonGame.hasStarted) {
+        simonGame.play();
+    }
 });
